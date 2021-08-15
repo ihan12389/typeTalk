@@ -83,22 +83,29 @@ body,
   height: 40px;
   padding: 0 0 0 10px;
   font-size: 15px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .loginContainerWrapper .loginContainer .loginFormContainer .loginInputContainer input::-webkit-input-placeholder {
-  color: #bbb;
+  color: #ddd;
 }
 
 .loginContainerWrapper .loginContainer .loginFormContainer .loginInputContainer input:-ms-input-placeholder {
-  color: #bbb;
+  color: #ddd;
 }
 
 .loginContainerWrapper .loginContainer .loginFormContainer .loginInputContainer input::-ms-input-placeholder {
-  color: #bbb;
+  color: #ddd;
 }
 
 .loginContainerWrapper .loginContainer .loginFormContainer .loginInputContainer input::placeholder {
-  color: #bbb;
+  color: #ddd;
+}
+
+.loginContainerWrapper .loginContainer .loginFormContainer .loginInputContainer input:first-child {
+  border-top: 1px solid #ddd;
 }
 
 .loginContainerWrapper .loginContainer .loginFormContainer .loginButton {
@@ -111,5 +118,6 @@ body,
   font-size: 18px;
   font-weight: 500;
   color: gray;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
