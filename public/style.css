@@ -3,9 +3,12 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  button-outline: none;
-  button-border: none;
-  button-background-color: transparent;
+}
+
+* button {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 * input {
@@ -14,10 +17,15 @@
 }
 
 html,
-body,
-#app {
+body {
   width: 100%;
   height: 100%;
+}
+
+#app {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100%;
 }
 
 .loginContainerWrapper {
@@ -25,15 +33,17 @@ body,
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 .loginContainerWrapper .loginContainer {
+  overflow: auto;
   background-color: #ffeb34;
   width: 500px;
+  height: 100%;
 }
 
 .loginContainerWrapper .loginContainer .loginLogoContainer {
@@ -119,5 +129,234 @@ body,
   font-weight: 500;
   color: gray;
   cursor: pointer;
+  margin-bottom: 60px;
+}
+
+.mainContainerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainContainerWrapper .mainContainer {
+  background: pink;
+  overflow: auto;
+  background-color: #fefefe;
+  width: 500px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerBar {
+  height: 55px;
+  background-color: #4a3134;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerBar span {
+  padding-left: 10px;
+  color: #fefefe;
+  font-size: 20px;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer button img {
+  width: 25px;
+  height: 25px;
+  -webkit-filter: invert(80%);
+          filter: invert(80%);
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerTab {
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid #bbb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton:first-child {
+  border-bottom: 2px solid #3e3133;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton:first-child img {
+  margin-bottom: -2px;
+}
+
+.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton img {
+  width: 30px;
+  height: 30px;
+}
+
+.mainContainerWrapper .mainContainer .search {
+  width: 100%;
+}
+
+.mainContainerWrapper .mainContainer .search input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.mainContainerWrapper .mainContainer .search input::-webkit-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.mainContainerWrapper .mainContainer .search input:-ms-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.mainContainerWrapper .mainContainer .search input::-ms-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.mainContainerWrapper .mainContainer .search input::placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfileText {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfileText span {
+  padding-left: 15px;
+  color: #34e6e0ee;
+  font-size: 16px;
+  font-weight: 550;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile img {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile span {
+  color: #444;
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.mainContainerWrapper .mainContainer .main .profile {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.mainContainerWrapper .mainContainer .main .profile img {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.mainContainerWrapper .mainContainer .main .profile span {
+  color: #444;
+  padding-left: 15px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

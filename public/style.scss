@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    button : {
+    button {
         outline: none;
         border: none;
         background-color: transparent;
@@ -14,20 +14,26 @@
 }
 
 html,
-body,
-#app {
+body {
     width: 100%;
     height: 100%;
+}
+#app {
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100%;
 }
 
 .loginContainerWrapper {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
     .loginContainer {
+        overflow: auto;
         background-color: #ffeb34;
         width: 500px;
+        height: 100%;
         .loginLogoContainer {
             display: flex;
             align-items: center;
@@ -73,6 +79,143 @@ body,
                 font-weight: 500;
                 color: gray;
                 cursor: pointer;
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+
+.mainContainerWrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    .mainContainer {
+        background: pink;
+        overflow: auto;
+        background-color: #fefefe;
+        width: 500px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .headerContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .headerBar {
+                height: 55px;
+                background-color: #4a3134;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                span {
+                    padding-left: 10px;
+                    color: #fefefe;
+                    font-size: 20px;
+                }
+                .headerButtonContainer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 20px;
+                        cursor: pointer;
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            filter: invert(80%);
+                        }
+                    }
+                }
+            }
+            .headerTab {
+                width: 100%;
+                height: 55px;
+                border-bottom: 1px solid #bbb;
+                display: flex;
+                .tabButton {
+                    width: 25%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    &:first-child {
+                        border-bottom: 2px solid #3e3133;
+                        img {
+                            margin-bottom: -2px;
+                        }
+                    }
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+        .search {
+            width: 100%;
+            input {
+                width: 100%;
+                height: 50px;
+                padding-left: 10px;
+                font-size: 16px;
+                &::placeholder {
+                    font-size: 18px;
+                    color: #777;
+                }
+            }
+        }
+        .main {
+            .myProfileText {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                border-top: 1px solid #dedede;
+                border-bottom: 1px solid #dedede;
+                span {
+                    padding-left: 15px;
+                    color: #34e6e0ee;
+                    font-size: 16px;
+                    font-weight: 550;
+                }
+            }
+            .myProfile {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                img {
+                    cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+                span {
+                    color: #444;
+                    padding-left: 15px;
+                    font-weight: bold;
+                }
+            }
+            .profile {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #e9e9e9;
+                img {
+                    cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+                span {
+                    color: #444;
+                    padding-left: 15px;
+                    font-weight: bold;
+                }
             }
         }
     }
