@@ -1,0 +1,16 @@
+{
+    "myprofile" : {
+        "nickname" : "이한",
+        "profileImg" : "./images/profile.jpg"
+    },
+    "friends" : [
+        {
+            "nickname" : "아린",
+            "profileImg" : "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096"
+        },
+        {
+            "nickname" : "성소",
+            "profileImg" : "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D"
+        }
+    ]
+}
