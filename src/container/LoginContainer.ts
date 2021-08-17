@@ -1,10 +1,9 @@
-import {Login} from "../Login";
-import {Signup} from "../Signup";
+import {Login} from "../components/auth/Login";
+// import {Signup} from "../components/auth/Signup";
 
 class LoginContainer {
     app = document.getElementById("app");
-    constructor() {
-    }
+    constructor() {}
 
     render() {
         this.app.innerHTML = `

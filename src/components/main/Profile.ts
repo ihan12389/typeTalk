@@ -1,6 +1,9 @@
-class Profile {
+import {Component} from "../../lib/Component";
+
+class Profile extends Component {
     friend: any;
-    constructor(friend) {
+    constructor(parent, friend) {
+        super(parent);
         this.friend = friend;
     }
 

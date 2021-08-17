@@ -1,6 +1,9 @@
-class Header {
+import {Component} from "../../lib/Component";
+
+class Header extends Component {
     friendNum: any;
-    constructor(friendNum){
+    constructor(parent, friendNum){
+        super(parent)
         this.friendNum = friendNum;
     }
 

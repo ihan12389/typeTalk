@@ -1,9 +1,10 @@
-import {Profile} from "./profile";
+import {Component} from "../../lib/Component";
 
-class Main {
-    datas: any;
-    constructor(datas){
-        this.datas = datas;
+class Main extends Component {
+    myprofile: any;
+    constructor(parent, myprofile){
+        super(parent);
+        this.myprofile = myprofile;
     }
 
     render() {
@@ -13,13 +14,13 @@ class Main {
                 <span>내 프로필</span>
             </div>
             <div class="myProfile">
-                <img src="${this.datas.myprofile.profileImg}" />
-                <span>${this.datas.myprofile.nickname}</span>
+                <img src="${this.myprofile.profileImg}" />
+                <span>${this.myprofile.nickname}</span>
             </div>
             <div class="myProfileText">
                 <span>친구</span>
             </div>
-            ${this.datas.friends.map(friend => new Profile(friend).render()).join()}
+            ${this.components.map(component => component.render()).join('')}
         </div>
         `;
     }

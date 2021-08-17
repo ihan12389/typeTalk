@@ -1,6 +1,5 @@
-import { LoginContainer } from "./container/LoginContainer";
-import { MainContainer} from "./container/MainContainer";
+import {MainPage} from "./pages/MainPage";
+const datas = require("../mockData.json");
 
-
-// new LoginContainer().render();
-new MainContainer().render();
+const mainPage = new MainPage(datas);
+mainPage.render();

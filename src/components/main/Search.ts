@@ -1,5 +1,9 @@
-class Search {
-    constructor(){}
+import {Component} from "../../lib/Component";
+
+class Search extends Component {
+    constructor(parent) {
+        super(parent);
+    }
 
     render() {
         return `
