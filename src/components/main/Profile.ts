@@ -9,9 +9,12 @@ class Profile extends Component {
 
     render() {
         return `
-        <div class="myProfile">
-            <img src="${this.friend.profileImg}" />
-            <span>${this.friend.nickname}</span>
+        <div class="profile">
+            <div class="profileLeft">
+                <img src="${this.friend.profileImg}" />
+                <span>${this.friend.nickname}</span>
+            </div>
+            ${this.friend.profileMessage ? `<div class="profileMessage"><span>${this.friend.profileMessage}</span></div>` : ""}
         </div>
         `;
     }

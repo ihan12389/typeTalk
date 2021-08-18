@@ -132,6 +132,142 @@ body {
   margin-bottom: 60px;
 }
 
+.headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.headerContainer .headerBar {
+  height: 55px;
+  background-color: #4a3134;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerContainer .headerBar span {
+  padding-left: 10px;
+  color: #fefefe;
+  font-size: 20px;
+}
+
+.headerContainer .headerBar .headerButtonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.headerContainer .headerBar .headerButtonContainer button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.headerContainer .headerBar .headerButtonContainer button img {
+  width: 25px;
+  height: 25px;
+  -webkit-filter: invert(80%);
+          filter: invert(80%);
+}
+
+.headerContainer .headerTab {
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid #bbb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headerContainer .headerTab .tabButton {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.headerContainer .headerTab .tabButton:first-child {
+  border-bottom: 2px solid #3e3133;
+}
+
+.headerContainer .headerTab .tabButton:first-child img {
+  margin-bottom: -2px;
+}
+
+.headerContainer .headerTab .tabButton img {
+  width: 30px;
+  height: 30px;
+}
+
+.search {
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.search input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.search input::-webkit-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.search input:-ms-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.search input::-ms-input-placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
+.search input::placeholder {
+  font-size: 18px;
+  color: #777;
+}
+
 .mainContainerWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,141 +293,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerBar {
-  height: 55px;
-  background-color: #4a3134;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerBar span {
-  padding-left: 10px;
-  color: #fefefe;
-  font-size: 20px;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerBar .headerButtonContainer button img {
-  width: 25px;
-  height: 25px;
-  -webkit-filter: invert(80%);
-          filter: invert(80%);
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerTab {
-  width: 100%;
-  height: 55px;
-  border-bottom: 1px solid #bbb;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton {
-  width: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  cursor: pointer;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton:first-child {
-  border-bottom: 2px solid #3e3133;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton:first-child img {
-  margin-bottom: -2px;
-}
-
-.mainContainerWrapper .mainContainer .headerContainer .headerTab .tabButton img {
-  width: 30px;
-  height: 30px;
-}
-
-.mainContainerWrapper .mainContainer .search {
-  width: 100%;
-}
-
-.mainContainerWrapper .mainContainer .search input {
-  width: 100%;
-  height: 50px;
-  padding-left: 10px;
-  font-size: 16px;
-}
-
-.mainContainerWrapper .mainContainer .search input::-webkit-input-placeholder {
-  font-size: 18px;
-  color: #777;
-}
-
-.mainContainerWrapper .mainContainer .search input:-ms-input-placeholder {
-  font-size: 18px;
-  color: #777;
-}
-
-.mainContainerWrapper .mainContainer .search input::-ms-input-placeholder {
-  font-size: 18px;
-  color: #777;
-}
-
-.mainContainerWrapper .mainContainer .search input::placeholder {
-  font-size: 18px;
-  color: #777;
 }
 
 .mainContainerWrapper .mainContainer .main .myProfileText {
@@ -322,34 +323,21 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.mainContainerWrapper .mainContainer .main .myProfile img {
-  margin-left: 15px;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.mainContainerWrapper .mainContainer .main .myProfile span {
-  color: #444;
-  padding-left: 15px;
-  font-weight: bold;
-}
-
-.mainContainerWrapper .mainContainer .main .profile {
-  height: 80px;
+.mainContainerWrapper .mainContainer .main .myProfile .profileLeft {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #e9e9e9;
 }
 
-.mainContainerWrapper .mainContainer .main .profile img {
+.mainContainerWrapper .mainContainer .main .myProfile .profileLeft img {
   margin-left: 15px;
   cursor: pointer;
   width: 50px;
@@ -357,9 +345,240 @@ body {
   border-radius: 50%;
 }
 
-.mainContainerWrapper .mainContainer .main .profile span {
+.mainContainerWrapper .mainContainer .main .myProfile .profileLeft span {
   color: #444;
   padding-left: 15px;
   font-weight: bold;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile .profileMessage {
+  background-color: #feee5a;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin-right: 10px;
+  max-width: 300px;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile .profileMessage::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  border-top: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid #feee5a;
+  border-bottom: 8px solid transparent;
+}
+
+.mainContainerWrapper .mainContainer .main .myProfile .profileMessage span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mainContainerWrapper .mainContainer .main .profile {
+  height: 80px;
+  border-bottom: 1px solid #e9e9e9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileLeft img {
+  margin-left: 15px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileLeft span {
+  color: #444;
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileMessage {
+  background-color: #feee5a;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin-right: 10px;
+  max-width: 300px;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileMessage::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  border-top: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid #feee5a;
+  border-bottom: 8px solid transparent;
+}
+
+.mainContainerWrapper .mainContainer .main .profile .profileMessage span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chatContainerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.chatContainerWrapper .chatContainer {
+  border: 1px solid #4a3134;
+  background: pink;
+  overflow: auto;
+  background-color: #fefefe;
+  width: 500px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .imageContainer {
+  width: 80px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .imageContainer img {
+  width: 50%;
+  height: 100%;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomContent .roomTitle {
+  font-weight: bold;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomContent .chatContent {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  height: 3.6em;
+  margin-top: 2px;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomInfo .time {
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.chatContainerWrapper .chatContainer .chat .chatRoom .roomInfo .unread {
+  margin-top: 15px;
+  background-color: #ea5546;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

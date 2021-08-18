@@ -14,8 +14,11 @@ class Main extends Component {
                 <span>내 프로필</span>
             </div>
             <div class="myProfile">
-                <img src="${this.myprofile.profileImg}" />
-                <span>${this.myprofile.nickname}</span>
+                <div class="profileLeft">
+                    <img src="${this.myprofile.profileImg}" />
+                    <span>${this.myprofile.nickname}</span>
+                </div>
+                ${this.myprofile.profileMessage ? `<div class="profileMessage"><span>${this.myprofile.profileMessage}</span></div>` : ""}
             </div>
             <div class="myProfileText">
                 <span>친구</span>

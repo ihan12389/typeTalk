@@ -1,10 +1,8 @@
 import {Component} from "../../lib/Component";
 
 class Header extends Component {
-    friendNum: any;
-    constructor(parent, friendNum){
+    constructor(parent){
         super(parent)
-        this.friendNum = friendNum;
     }
 
     render() {
@@ -12,7 +10,7 @@ class Header extends Component {
         <div class="headerContainer">
             <div class="headerBar">
                 <span>채팅</span>
-                    <div class="headerButtonContainer">
+                <div class="headerButtonContainer">
                     <button type="button"><img src="./images/more_c.png" /></button>
                 </div>
             </div>
