@@ -6,13 +6,13 @@ import {Search} from "../components/main/Search";
 import {Profile} from "../components/main/Profile";
 
 class MainPage extends Page {
-    constructor(datas) {
-        super();
+    constructor({router, datas}) {
+        super(router);
         const container = new MainContainer();
-        new Header(container, datas.friends.length);
+        new Header(container, datas[0].friends.length);
         new Search(container);
-        const main = new Main(container, datas.myprofile);
-        datas.friends.map(friend => new Profile(main, friend))
+        const main = new Main(container, datas[0].myprofile);
+        datas[0].friends.map(friend => new Profile(main, friend))
     }
 }
 

@@ -11,8 +11,9 @@ class Header extends Component {
         return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>채팅</span>
-                    <div class="headerButtonContainer">
+                <span>친구 ${this.friendNum}</span>
+                <div class="headerButtonContainer">
+                    <button type="button"><img src="./images/add.png" /></button>
                     <button type="button"><img src="./images/more_c.png" /></button>
                 </div>
             </div>

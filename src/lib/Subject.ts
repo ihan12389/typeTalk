@@ -13,6 +13,10 @@ class Subject {
     render() {
         this.app.innerHTML = this.observers.map((observer) => observer.render()).join("");
     }
+
+    reset() {
+        this.observers = [];
+    }
 }
 
 const subject = new Subject();

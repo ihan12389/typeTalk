@@ -1,8 +1,14 @@
+import {Router} from "./lib/Router";
 import {MainPage} from "./pages/MainPage";
 import {ChatPage} from "./pages/ChatPage";
 const datas = require("../mockData.json");
 
-// const mainPage = new MainPage(datas);
-// mainPage.render();
-const chatPage = new ChatPage(datas);
-chatPage.render();
+const pages = [
+    {page:MainPage, path:"/"},
+    {page:ChatPage, path:"/chat"}
+];
+
+const router = new Router({pages:pages});
+
+router.setData(datas);
+router.push(pages[0].path);
