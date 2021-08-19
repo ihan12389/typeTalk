@@ -1,54 +1,80 @@
 {
-    "myprofile" : {
-        "nickname" : "이한",
-        "profileImg" : "./images/profile.jpg",
-        "profileMessage" : "코asdddddddddddddddddddddddddddddddddddddddddd"
+  "myprofile": {
+    "nickname": "이한",
+    "profileImg": "./images/profile.jpg",
+    "profileMessage": "코asdddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "friends": [
+    {
+      "nickname": "아린",
+      "profileImg": "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096",
+      "profileMessage": "코딩 공부 열심히 하세요!"
     },
-    "friends" : [
+    {
+      "nickname": "성소",
+      "profileImg": "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D",
+      "profileMessage": "늘 응원하고 있어요!"
+    }
+  ],
+  "chats": [
+    {
+      "title": "테스트 방ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "content": "화면을 테스트합시다!",
+      "time": "오후 7:06",
+      "unread": "3",
+      "friends": [
         {
-            "nickname" : "아린",
-            "profileImg" : "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096",
-            "profileMessage" : "코딩 공부 열심히 하세요!"
+          "name": "전효성",
+          "profileImg": "https://image.news1.kr/system/ap/2015/5/7/1349513/dims/optimize"
         },
         {
-            "nickname" : "성소",
-            "profileImg" : "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D",
-            "profileMessage" : "늘 응원하고 있어요!"
-
+          "name": "예리",
+          "profileImg": "https://i.pinimg.com/originals/3d/c6/45/3dc645dbc13ac045843e499def4aa669.png"
         }
+      ]
+    },
+    {
+      "title": "테스트 방2",
+      "content": "코딩공부 열심히 하자구요",
+      "time": "오후 2:06",
+      "unread": "",
+      "friends": [
+        {
+          "name": "아린",
+          "profileImg": "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096"
+        },
+        {
+          "name": "성소",
+          "profileImg": "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D"
+        }
+      ]
+    }
+  ],
+  "room": {
+    "title": "테스트 방",
+    "friends": [
+      {
+        "name": "아이린",
+        "proflieImg": "http://file3.instiz.net/data/cached_img/upload/2019/03/03/19/8c42bf8e384468c3476542ac3e37dc47.jpg"
+      },
+      {
+        "name": "lihano",
+        "profileImg": "./images/profile.jpg"
+      }
     ],
-    "chats" : [
-        {
-            "title" : "테스트 방ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
-            "content" : "화면을 테스트합시다!",
-            "time" : "오후 7:06",
-            "unread" : "3",
-            "friends" : [
-                {
-                    "name" : "전효성",
-                    "profileImg" : "https://image.news1.kr/system/ap/2015/5/7/1349513/dims/optimize"
-                },
-                {
-                    "name" : "예리",
-                    "profileImg" : "https://i.pinimg.com/originals/3d/c6/45/3dc645dbc13ac045843e499def4aa669.png"
-                }
-            ]
-        },
-        {
-            "title" : "테스트 방2",
-            "content" : "코딩공부 열심히 하자구요",
-            "time" : "오후 2:06",
-            "unread" : "",
-            "friends" : [
-                {
-                    "name" : "아린",
-                    "profileImg" : "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096"
-                },
-                {
-                    "name" : "성소",
-                    "profileImg" : "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D"
-                }
-            ]
-        }
+    "chats": [
+      {
+        "name": "아이린",
+        "profileImg": "http://file3.instiz.net/data/cached_img/upload/2019/03/03/19/8c42bf8e384468c3476542ac3e37dc47.jpg",
+        "chatting": "반가워 하니야^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "time": "오전 10:00"
+      },
+      {
+        "name": "lihano",
+        "profileImg": "./images/profile.jpg",
+        "chatting": "네 반갑습니다",
+        "time": "오전 10:01"
+      }
     ]
+  }
 }

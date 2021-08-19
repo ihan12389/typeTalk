@@ -223,17 +223,17 @@ body {
   cursor: pointer;
 }
 
-.headerContainer .headerTab .tabButton:first-child {
-  border-bottom: 2px solid #3e3133;
-}
-
-.headerContainer .headerTab .tabButton:first-child img {
-  margin-bottom: -2px;
-}
-
 .headerContainer .headerTab .tabButton img {
   width: 30px;
   height: 30px;
+}
+
+.headerContainer .headerTab .focus {
+  border-bottom: 2px solid #3e3133;
+}
+
+.headerContainer .headerTab .focus img {
+  margin-bottom: -2px;
 }
 
 .search {
@@ -485,8 +485,8 @@ body {
 }
 
 .chatContainerWrapper .chatContainer .chat .chatRoom .imageContainer {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -580,5 +580,166 @@ body {
   border-radius: 50%;
   font-size: 15px;
   color: white;
+}
+
+.roomContainerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.roomContainerWrapper .roomContainer {
+  border: 1px solid #4a3134;
+  overflow: auto;
+  background-color: #9bbbd4;
+  width: 500px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.roomContainerWrapper .roomContainer .headerBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #4d4d4d42;
+  background-color: #9fbdd5;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerLeft img {
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerLeft .roomName {
+  font-size: 23px;
+  margin-right: 5px;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerLeft .friendsNum {
+  font-size: 23px;
+  color: #ede62e;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 40px;
+}
+
+.roomContainerWrapper .roomContainer .headerBar .headerRight img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.roomContainerWrapper .roomContainer .roomContent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 3px;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat .content .name {
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat .content .speechBuble {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 3px;
+  position: relative;
+  margin-left: 10px;
+  max-width: 330px;
+  word-break: break-all;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat .content .speechBuble:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -13px;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+  border-left: 8px solid transparent;
+  border-right: 8px solid #ffffff;
+}
+
+.roomContainerWrapper .roomContainer .roomContent .chat .time {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 13px;
+  margin-left: 5px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,24 +1,32 @@
 class Subject {
-    app: HTMLElement;
-    observers = [];
+  app: HTMLElement;
+  observers = [];
 
-    constructor() {
-        this.app = document.getElementById("app")
-    }
+  constructor() {
+    this.app = document.getElementById("app");
+  }
 
-    register(observer) {
-        this.observers.push(observer);
-    }
+  register(observer) {
+    this.observers.push(observer);
+  }
 
-    render() {
-        this.app.innerHTML = this.observers.map((observer) => observer.render()).join("");
-    }
+  render() {
+    this.app.innerHTML = this.observers
+      .map((observer) => observer.render())
+      .join("");
+  }
 
-    reset() {
-        this.observers = [];
-    }
+  mount() {
+    this.observers.forEach((component) => {
+      component.mount();
+    });
+  }
+
+  reset() {
+    this.observers = [];
+  }
 }
 
 const subject = new Subject();
 
-export {Subject, subject};
+export { Subject, subject };
