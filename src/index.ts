@@ -14,4 +14,4 @@ const pages = [
 const router = new Router({ pages: pages });
 
 router.setData(datas);
-router.push(pages[2].path);
+router.push(pages[0].path);
