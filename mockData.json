@@ -8,12 +8,18 @@
     {
       "nickname": "아린",
       "profileImg": "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096",
-      "profileMessage": "코딩 공부 열심히 하세요!"
+      "profileMessage": "코딩 공부 열심히 하세요!",
+      "uid": 1,
+      "background": "./images/background.jpg",
+      "email": "Arin@naver.com"
     },
     {
       "nickname": "성소",
       "profileImg": "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D",
-      "profileMessage": "늘 응원하고 있어요!"
+      "profileMessage": "늘 응원하고 있어요!",
+      "uid": 2,
+      "background": "./images/background.jpg",
+      "email": "chinaGone@naver.com"
     }
   ],
   "chats": [
@@ -83,7 +89,7 @@
     },
     {
       "id": 2,
-      "title": "테스트 방",
+      "title": "테스트 방2",
       "friends": [
         {
           "name": "아린",
