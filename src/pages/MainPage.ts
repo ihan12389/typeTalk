@@ -11,8 +11,8 @@ class MainPage extends Page {
     const container = new MainContainer();
     new Header(container, datas[0].friends.length, router);
     new Search(container);
-    const main = new Main(container, datas[0].myprofile);
-    datas[0].friends.map((friend) => new Profile(main, friend));
+    const main = new Main(container, datas[0].myprofile, router);
+    datas[0].friends.map((friend) => new Profile(main, friend, router));
   }
 }
 

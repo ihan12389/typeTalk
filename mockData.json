@@ -2,14 +2,17 @@
   "myprofile": {
     "nickname": "이한",
     "profileImg": "./images/profile.jpg",
-    "profileMessage": "코asdddddddddddddddddddddddddddddddddddddddddd"
+    "profileMessage": "코asdddddddddddddddddddddddddddddddddddddddddd",
+    "background": "./images/background.jpg",
+    "email": "ihan128@naver.com",
+    "uid": "a1"
   },
   "friends": [
     {
       "nickname": "아린",
       "profileImg": "https://pbs.twimg.com/media/DNUuq9TUIAAdEv-?format=jpg&name=4096x4096",
       "profileMessage": "코딩 공부 열심히 하세요!",
-      "uid": 1,
+      "uid": "a2",
       "background": "./images/background.jpg",
       "email": "Arin@naver.com"
     },
@@ -17,14 +20,15 @@
       "nickname": "성소",
       "profileImg": "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F996FD04C5D1A1294369A9D",
       "profileMessage": "늘 응원하고 있어요!",
-      "uid": 2,
+      "uid": "a3",
       "background": "./images/background.jpg",
       "email": "chinaGone@naver.com"
     }
   ],
   "chats": [
     {
-      "id": 1,
+      "id": "b1",
+      "uids": ["a1, a2"],
       "title": "테스트 방ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
       "content": "화면을 테스트합시다!",
       "time": "오후 7:06",
@@ -41,7 +45,8 @@
       ]
     },
     {
-      "id": 2,
+      "id": "b2",
+      "uids": ["a1", "a3"],
       "title": "테스트 방2",
       "content": "코딩공부 열심히 하자구요",
       "time": "오후 2:06",
@@ -60,7 +65,8 @@
   ],
   "room": [
     {
-      "id": 1,
+      "id": "b1",
+      "uids": ["a1", "a2"],
       "title": "테스트 방",
       "friends": [
         {
@@ -88,7 +94,8 @@
       ]
     },
     {
-      "id": 2,
+      "id": "b2",
+      "uids": ["a1", "a3"],
       "title": "테스트 방2",
       "friends": [
         {

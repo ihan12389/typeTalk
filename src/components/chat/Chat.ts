@@ -11,9 +11,9 @@ class Chat extends Component {
   }
 
   mount() {
-    const chatRoom = document.querySelector(`.chatRoom${this.chat.id}`);
+    const chatRoom = document.querySelector(`#${this.chat.id}`);
     chatRoom.addEventListener("click", () => {
-      const data = datas.room.find((data) => String(data.id) === chatRoom.id);
+      const data = datas.room.find((room) => room.id === chatRoom.id);
       console.log(data);
       this.router.setData(data);
       this.router.push("/room");
@@ -22,7 +22,7 @@ class Chat extends Component {
 
   render() {
     return `
-    <div class="chatRoom chatRoom${this.chat.id}" id="${this.chat.id}">
+    <div class="chatRoom" id="${this.chat.id}">
         <div class="imageContainer">
             ${this.chat.friends
               .map((friend) => `<img src="${friend.profileImg}" />`)

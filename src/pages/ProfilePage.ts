@@ -10,9 +10,9 @@ class ProfilePage extends Page {
     console.log(datas);
     super(router);
     const profileContainer = new ProfileContainer(null);
-    new Background(profileContainer, datas[0].friends[0]);
+    new Background(profileContainer, datas[0], router);
     const container = new Container(profileContainer);
-    new Profile(container, datas[0].friends[0]);
+    new Profile(container, datas[0]);
     new Button(container);
   }
 }
