@@ -501,6 +501,7 @@ body {
       img {
         height: 100%;
         width: 100%;
+        z-index: 1;
       }
     }
     .container {
@@ -544,6 +545,7 @@ body {
           align-items: center;
           justify-content: center;
           width: 80px;
+          cursor: pointer;
           div {
             background-color: rgba(0, 0, 0, 0.1);
             width: 70px;
@@ -567,13 +569,14 @@ body {
       }
     }
     .close {
-      color: white;
+      color: #fff;
       font-size: 30px;
       font-weight: bold;
-      position: fixed;
-      left: 390px;
-      top: 20px;
+      position: relative;
+      left: 20px;
+      top: -580px;
       cursor: pointer;
+      z-index: 2;
     }
   }
 }

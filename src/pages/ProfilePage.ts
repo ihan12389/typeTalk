@@ -1,10 +1,19 @@
 import { Page } from "../lib/Page";
 import { ProfileContainer } from "../container/ProfileContainer";
+import { Background } from "../components/profile/Background";
+import { Container } from "../components/profile/Container";
+import { Button } from "../components/profile/Button";
+import { Profile } from "../components/profile/Profile";
 
 class ProfilePage extends Page {
   constructor({ router, datas }) {
+    console.log(datas);
     super(router);
-    const container = new ProfileContainer(null);
+    const profileContainer = new ProfileContainer(null);
+    new Background(profileContainer, datas[0].friends[0]);
+    const container = new Container(profileContainer);
+    new Profile(container, datas[0].friends[0]);
+    new Button(container);
   }
 }
 

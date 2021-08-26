@@ -776,6 +776,7 @@ body {
 .profileContainerWrapper .profileContainer .backgroundImg img {
   height: 100%;
   width: 100%;
+  z-index: 1;
 }
 
 .profileContainerWrapper .profileContainer .container {
@@ -855,6 +856,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 80px;
+  cursor: pointer;
 }
 
 .profileContainerWrapper .profileContainer .container .button .buttonElement div {
@@ -885,12 +887,13 @@ body {
 }
 
 .profileContainerWrapper .profileContainer .close {
-  color: white;
+  color: #fff;
   font-size: 30px;
   font-weight: bold;
-  position: fixed;
-  left: 390px;
-  top: 20px;
+  position: relative;
+  left: 20px;
+  top: -580px;
   cursor: pointer;
+  z-index: 2;
 }
 /*# sourceMappingURL=style.css.map */
