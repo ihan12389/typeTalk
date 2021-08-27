@@ -13,7 +13,7 @@ class ProfilePage extends Page {
     new Background(profileContainer, datas[0], router);
     const container = new Container(profileContainer);
     new Profile(container, datas[0]);
-    new Button(container);
+    new Button(container, datas[0], router);
   }
 }
 
