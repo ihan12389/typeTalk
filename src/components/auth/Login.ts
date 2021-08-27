@@ -15,7 +15,7 @@ class Login extends Component {
             var email = (<HTMLInputElement>document.getElementById('email')).value;
             var password = (<HTMLInputElement>document.getElementById('password')).value;
             console.log(email, password);
-            auth.signInWithEmailAndPassword(email, password).then((user) => console.log(user)).catch(error => console.log(error.message));
+            auth.signInWithEmailAndPassword(email, password).then((user) => console.log(user.user)).catch(error => console.log(error.message));
         }
     }
     

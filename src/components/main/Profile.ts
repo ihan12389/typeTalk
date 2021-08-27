@@ -23,7 +23,8 @@ class Profile extends Component {
     return `
         <div class="profile" id="${this.friend.uid}"">
             <div class="profileLeft">
-                <img src="${this.friend.profileImg}" />
+
+                <img src="${this.friend.profileImg==="" ? "./images/profile.jpg" : this.friend.profileImg}" />
                 <span>${this.friend.nickname}</span>
             </div>
             ${
