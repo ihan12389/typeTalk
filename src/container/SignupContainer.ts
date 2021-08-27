@@ -1,6 +1,6 @@
 import { Component } from "../lib/Component";
 
-class LoginContainer extends Component {
+class SignupContainer extends Component {
     constructor() {
         super(null);
     }
@@ -16,4 +16,4 @@ class LoginContainer extends Component {
     }
 }
 
-export{LoginContainer}
+export{SignupContainer}
