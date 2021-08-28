@@ -32,7 +32,6 @@ const datas = require("../mockData.json");
         router.push(pages[0].path);
       }
     });
-
   }
   // 로그아웃 상태
   else {

@@ -2,11 +2,11 @@ import { Component } from "../../lib/Component";
 const datas = require("../../../mockData.json");
 
 class Background extends Component {
-  friends: any;
+  friend: any;
   router: any;
-  constructor(parent, friends, router) {
+  constructor(parent, friend, router) {
     super(parent);
-    this.friends = friends;
+    this.friend = friend;
     this.router = router;
   }
 
@@ -20,7 +20,7 @@ class Background extends Component {
   render() {
     return `
     <div class="backgroundImg">
-            <img src="${this.friends.background}" />
+            <img src="${this.friend.background ? this.friend.background : "./images/background.jpg"}" />
             <span class="closeProfile">X</span>
     </div>
     `;

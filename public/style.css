@@ -268,6 +268,67 @@ body {
   color: #777;
 }
 
+.search .searchBox {
+  display: none;
+  background-color: rgba(151, 151, 151, 0.1);
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+}
+
+.search .searchBox .searchElement {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+}
+
+.search .searchBox .searchElement img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.search .searchBox .searchElement .searchText {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 15px;
+}
+
+.search .searchBox .searchElement .searchText .nickname {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search .searchBox .searchElement .searchText .email {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.search .searchBox .searchElement button {
+  font-weight: bold;
+  border: 2px solid #4a3134;
+  color: #4a3134;
+  padding: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 .mainContainerWrapper {
   display: -webkit-box;
   display: -ms-flexbox;

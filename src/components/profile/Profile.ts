@@ -1,18 +1,18 @@
 import { Component } from "../../lib/Component";
 
 class Profile extends Component {
-  friends: any;
-  constructor(parent, friends) {
+  friend: any;
+  constructor(parent, friend) {
     super(parent);
-    this.friends = friends;
+    this.friend = friend;
   }
 
   render() {
     return `
     <div class="profile">
-        <img src="${this.friends.profileImg}" class="thumbnail" />
-        <span class="name">${this.friends.nickname}</span>
-        <div class="email"><span>${this.friends.email}</span></div>
+        <img src="${this.friend.profileImg ? this.friend.profileImg : "./images/profile.jpg"}" class="thumbnail" />
+        <span class="name">${this.friend.nickname}</span>
+        <div class="email"><span>${this.friend.email}</span></div>
     </div>
     `;
   }

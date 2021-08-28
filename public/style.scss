@@ -157,6 +157,47 @@ body {
       color: #777;
     }
   }
+  .searchBox {
+    display : none;
+    background-color: rgba(151, 151, 151, 0.1);
+    width : 100%;
+    height : 60px;
+    padding : 10px;
+    .searchElement {
+      width : 100%;
+      height : 40px;
+      display : flex;
+      align-items: center;
+      gap : 4px;
+      img {
+        height : 100%;
+        border-radius: 50%;
+      }
+      .searchText {
+        flex : 1;
+        display : flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left : 15px;
+        .nickname {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .email {
+          font-size: 15px;
+          color :rgba(0, 0, 0, 0.3);
+        }
+      }
+      button {
+        font-weight: bold;
+        border : 2px solid #4a3134;
+        color : #4a3134;
+        padding : 5px;
+        border-radius: 15px;
+        cursor : pointer;
+      }
+    }
+  }
 }
 
 .mainContainerWrapper {
