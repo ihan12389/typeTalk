@@ -14,12 +14,13 @@ class MainPage extends Page {
     super(router);
     const container = new MainContainer();
     const header = new Header(container, len, router);
-    new Search(container);
+    const search = new Search(container);
     const main = new Main(container, mockData.me, router);
     // reRendering when user add new Friend
     firestore.collection("users").doc(auth.currentUser.uid).collection("firends").orderBy("nickname", "asc").onSnapshot((snapshot) => {
           main.components=[];
           header.len = snapshot.docs.length;
+          search.components = [];
           snapshot.docs.map(snap => {
             new Profile(main, snap.data(), router);
           })

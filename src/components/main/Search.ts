@@ -45,7 +45,7 @@ class Search extends Component {
     render() {
         return `
         <div class="search">
-            <input id="search" type="text" placeholder="🔍 Search Nickname & Email" />
+            <input id="search" type="text" placeholder="🔍 Search Nickname & Email" value="" />
             <div class="searchBox">
             </div>
         </div>

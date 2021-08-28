@@ -9,8 +9,9 @@ class SearchElement extends Component {
     }
 
     mount() {
+        console.log(this.user.uid);
         // 친구 추가 버튼을 클릭
-        document.getElementById(`${this.user.uid}`).addEventListener("click", ()=> {
+        document.getElementById(`search${this.user.uid}`).addEventListener("click", ()=> {
             // 먼저 내 uid를 구합니다
             const myUid = auth.currentUser.uid;
             console.log(myUid);
@@ -38,7 +39,7 @@ class SearchElement extends Component {
                 <span class="nickname">${this.user.nickname}</span>
                 <span class="email">${this.user.email}</span>
             </div>
-            <button class="addFriend" id="${this.user.uid}">친구 추가</button>
+            <button class="addFriend" id="search${this.user.uid}">친구 추가</button>
         </div>
         `;
     }
