@@ -16,7 +16,7 @@ class LogoutButton extends Component {
   render() {
     return `
     <div class="logout">
-        <button class="logoutButton">로그아웃</button>
+        <button class="logoutButton">LOGOUT</button>
     </div>
         `;
   }

@@ -1,5 +1,6 @@
 import { Component } from "../../lib/Component";
 import { Profile } from "./Profile";
+import { firestore, auth } from "../../../Firebase";
 
 class Main extends Component {
   myprofile: any;
@@ -12,12 +13,13 @@ class Main extends Component {
 
   mount() {
     document
-      .querySelector(`#${this.myprofile.uid}`)
+      .getElementById(`${this.myprofile.uid}`)
       .addEventListener("click", () => {
         console.log("클릭");
         this.router.setData(this.myprofile);
         this.router.push("/profile");
       });
+
     this.components.map((component) => component.mount());
   }
 
@@ -25,7 +27,7 @@ class Main extends Component {
     return `
         <div class="main">
             <div class="myProfileText">
-                <span>내 프로필</span>
+                <span>My Profile</span>
             </div>
             <div class="myProfile" id="${this.myprofile.uid}">
                 <div class="profileLeft">
@@ -39,7 +41,7 @@ class Main extends Component {
                 }
             </div>
             <div class="myProfileText">
-                <span>친구</span>
+                <span>My Friends</span>
             </div>
             ${this.components.map((component) => component.render()).join("")}
         </div>

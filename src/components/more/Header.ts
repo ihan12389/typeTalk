@@ -26,7 +26,7 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>로그 아웃</span>
+                <span>LOGOUT</span>
                 <div class="headerButtonContainer">
                     <button type="button"><img src="./images/add.png" /></button>
                     <button type="button"><img src="./images/more_c.png" /></button>

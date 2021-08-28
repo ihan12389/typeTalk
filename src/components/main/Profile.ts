@@ -11,7 +11,7 @@ class Profile extends Component {
 
   mount() {
     document
-      .querySelector(`#${this.friend.uid}`)
+      .getElementById(`${this.friend.uid}`)
       .addEventListener("click", () => {
         console.log("클릭");
         this.router.setData(this.friend);

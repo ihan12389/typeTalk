@@ -5,15 +5,27 @@ import { Header } from "../components/main/Header";
 import { Search } from "../components/main/Search";
 import { Profile } from "../components/main/Profile";
 import { mockData } from "../../mockData";
+import {firestore, auth} from "../../Firebase";
 
 class MainPage extends Page {
   constructor({ router, datas }) {
+    var len=0;
+    mockData.init();
     super(router);
     const container = new MainContainer();
-    new Header(container, mockData.friends.length, router);
+    const header = new Header(container, len, router);
     new Search(container);
     const main = new Main(container, mockData.me, router);
-    mockData.friends.map((friend) => new Profile(main, friend, router));
+    // reRendering when user add new Friend
+    firestore.collection("users").doc(auth.currentUser.uid).collection("firends").orderBy("nickname", "asc").onSnapshot((snapshot) => {
+          main.components=[];
+          header.len = snapshot.docs.length;
+          snapshot.docs.map(snap => {
+            new Profile(main, snap.data(), router);
+          })
+          this.render();
+          this.mount();
+      })
   }
 }
 

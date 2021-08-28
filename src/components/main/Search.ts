@@ -28,19 +28,24 @@ class Search extends Component {
                 } else {
                     document.querySelector(".searchBox").innerHTML = ``
                 }
+                const mountArray = [];
                 // 검색 데이터가 있다면 차례대로 렌더링합니다.
                 snapshot.docs.map((doc) => {
                     const data = doc.data();
-                    document.querySelector(".searchBox").innerHTML += new SearchElement(this, data).render();
+                    const addElement = new SearchElement(this, data);
+                    document.querySelector(".searchBox").innerHTML += addElement.render();
+                    mountArray.push(addElement);
                 })
+                mountArray.map(el => el.mount());
             })
         })
+        this.components.map(component => component.mount())
     }
 
     render() {
         return `
         <div class="search">
-            <input id="search" type="text" placeholder="🔍 이름(초성), 전화번호 검색" />
+            <input id="search" type="text" placeholder="🔍 Search Nickname & Email" />
             <div class="searchBox">
             </div>
         </div>

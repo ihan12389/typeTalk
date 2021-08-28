@@ -1,11 +1,12 @@
 import { Component } from "../../lib/Component";
 
 class Header extends Component {
-  friendNum: any;
+  len: any;
   router: any;
-  constructor(parent, friendNum, router) {
+  constructor(parent, len, router) {
+    console.log(len);
     super(parent);
-    this.friendNum = friendNum;
+    this.len = len;
     this.router = router;
   }
 
@@ -28,7 +29,7 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>친구 ${this.friendNum}</span>
+                <span>Friends ${this.len}</span>
                 <div class="headerButtonContainer">
                     <button type="button"><img src="./images/add.png" /></button>
                     <button type="button"><img src="./images/more_c.png" /></button>

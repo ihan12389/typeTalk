@@ -33,13 +33,13 @@ class Button extends Component {
                 <div class="imgWrapper">
                     <img src="./images/chatting2.png" />
                 </div>
-                <span>채팅 하기</span>
+                <span>DO CHAT</span>
             </div>
             <div class="buttonElement">
                 <div class="imgWrapper">
                     <img src="./images/write.png" />
                 </div>
-                <span>프로필 관리</span>
+                <span>UPDATE</span>
             </div>
         </div>
     </div>
