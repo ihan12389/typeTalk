@@ -1,10 +1,13 @@
 import { Component } from "../../lib/Component";
 import {auth, firestore} from "../../../Firebase";
+import { Router } from "../../lib/Router";
 
 class Signup extends Component {
     app = document.getElementById("app");
-    constructor(parent) {
+    router: any;
+    constructor(parent, router) {
         super(parent);
+        this.router = router;
     }
 
     mount() {
@@ -26,8 +29,11 @@ class Signup extends Component {
                 }
                 firestore.collection("users").doc(user.user.uid).set(userInform).catch(error => error); 
                 console.log(userInform);
-            }).catch(error => console.log(error.message));
+            }).catch(error => alert(error.message));
         }
+        document.getElementById("moveLogin").addEventListener("click", ()=>{
+            this.router.push("/login")
+        })
     }
 
     render() {
@@ -42,6 +48,7 @@ class Signup extends Component {
                 <input type="password" id="password" placeholder="비밀번호" />
             </div>
             <button class="loginButton" id="signupSubmit">회원가입</button>
+            <button type="submit" class="moveButton" id="moveLogin">로그인</button>
         </div>
         `
     }

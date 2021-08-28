@@ -11,14 +11,14 @@ class Header extends Component {
     const home = document.querySelector(".home");
     const chat = document.querySelector(".chat");
     const more = document.querySelector(".more");
-    chat.classList.add("focus");
+    more.classList.add("focus");
     home.addEventListener("click", () => {
       this.router.push("/");
-      chat.classList.remove("focus");
+      more.classList.remove("focus");
     });
-    more.addEventListener("click", ()=> {
-      this.router.push("/more");
-      chat.classList.remove("focus");
+    chat.addEventListener("click", ()=> {
+      this.router.push("/chat");
+      more.classList.remove("focus");
     })
   }
 
@@ -26,8 +26,9 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>채팅</span>
+                <span>로그 아웃</span>
                 <div class="headerButtonContainer">
+                    <button type="button"><img src="./images/add.png" /></button>
                     <button type="button"><img src="./images/more_c.png" /></button>
                 </div>
             </div>

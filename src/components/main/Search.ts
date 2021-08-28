@@ -16,7 +16,7 @@ class Search extends Component {
                 (<HTMLElement>document.querySelector(".searchBox")).style.display = "none";
                 return;
             } else {
-                (<HTMLElement>document.querySelector(".searchBox")).style.display = "block";
+                (<HTMLElement>document.querySelector(".searchBox")).style.display = "flex";
             }
             // 데이터베이스에서 사용자를 검색합니다.
             firestore.collection("users").where("nickname", ">=", search).where("nickname", "<=", search + "\uf8ff")
@@ -31,7 +31,7 @@ class Search extends Component {
                 // 검색 데이터가 있다면 차례대로 렌더링합니다.
                 snapshot.docs.map((doc) => {
                     const data = doc.data();
-                    document.querySelector(".searchBox").innerHTML = new SearchElement(this, data).render();
+                    document.querySelector(".searchBox").innerHTML += new SearchElement(this, data).render();
                 })
             })
         })

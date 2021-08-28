@@ -12,11 +12,16 @@ class Header extends Component {
   mount() {
     const home = document.querySelector(".home");
     const chat = document.querySelector(".chat");
+    const more = document.querySelector(".more");
     home.classList.add("focus");
     chat.addEventListener("click", () => {
       this.router.push("/chat");
       home.classList.remove("focus");
     });
+    more.addEventListener("click", ()=> {
+      this.router.push("/more");
+      home.classList.remove("focus");
+    })
   }
 
   render() {

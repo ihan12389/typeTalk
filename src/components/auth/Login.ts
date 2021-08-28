@@ -4,9 +4,11 @@ import {auth} from "../../../Firebase";
 
 class Login extends Component {
     app = document.getElementById("app");
+    router: any;
     
-    constructor(parent) {
+    constructor(parent, router) {
         super(parent);
+        this.router = router;
     }
 
     // 로그인 기능
@@ -15,8 +17,11 @@ class Login extends Component {
             var email = (<HTMLInputElement>document.getElementById('email')).value;
             var password = (<HTMLInputElement>document.getElementById('password')).value;
             console.log(email, password);
-            auth.signInWithEmailAndPassword(email, password).then((user) => console.log(user.user)).catch(error => console.log(error.message));
+            auth.signInWithEmailAndPassword(email, password).then((user) => console.log(user.user)).catch(error => alert(error.message));
         }
+        document.getElementById("moveSignup").addEventListener("click", ()=>{
+            this.router.push("/signup");
+        })
     }
     
     render() {
@@ -30,6 +35,7 @@ class Login extends Component {
                     <input type="password" id="password" placeholder="비밀번호" value="" />
                 </div>
                 <button type="submit" class="loginButton" id="loginSubmit">로그인</button>
+                <button type="submit" class="moveButton" id="moveSignup">회원가입</button>
         </div>
         `
     }

@@ -6,7 +6,7 @@ class LoginPage extends Page {
   constructor({ router, datas }) {
     super(router);
     const container = new LoginContainer();
-    new Login(container);
+    new Login(container, router);
   }
 }
 

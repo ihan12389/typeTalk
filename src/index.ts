@@ -8,6 +8,7 @@ import { auth } from "../Firebase";
 import { SignupPage } from "./pages/SignupPage";
 import {mockData} from "../mockData";
 import { firestore } from "../Firebase";
+import { MorePage } from "./pages/MorePage";
 
 const datas = require("../mockData.json");
 
@@ -26,6 +27,7 @@ const datas = require("../mockData.json");
           { page: ChatPage, path: "/chat" },
           { page: RoomPage, path: "/room" },
           { page: ProfilePage, path: "/profile" },
+          { page: MorePage, path: "/more"}
         ];
         const router = new Router({pages: pages})
         router.setData(datas);

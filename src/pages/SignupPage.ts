@@ -6,7 +6,7 @@ class SignupPage extends Page {
   constructor({ router, datas }) {
     super(router);
     const container = new SignupContainer();
-    new Signup(container);
+    new Signup(container, router);
   }
 }
 
