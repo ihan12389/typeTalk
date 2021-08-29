@@ -10,7 +10,7 @@
       "lib" : ["dom", "es2015", "es2017"],
       "allowSyntheticDefaultImports": true,
       "sourceMap": true,
-      "types": ["node"],
+      "types": ["node", "jquery"],
     },
     "include": ["src"]
   }

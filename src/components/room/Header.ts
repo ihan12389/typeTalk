@@ -1,4 +1,5 @@
 import { Component } from "../../lib/Component";
+import {auth} from "../../../Firebase";
 const datas = require("../../../mockData.json");
 
 class Header extends Component {
@@ -18,12 +19,18 @@ class Header extends Component {
     });
   }
 
+  getRoomTitle() {
+    const friendUid = this.room.uids.filter(uid => uid !== auth.currentUser.uid)[0];
+    const friend = this.room.friends.filter(friend => friend.uid === friendUid)[0];
+    return friend.nickname;
+  }
+
   render() {
     return `
         <div class="headerBar">
             <div class="headerLeft">
                 <img class="back" src="./images/back.png" />
-                <span class="roomName">${this.room.title}</span>
+                <span class="roomName">${this.getRoomTitle()}</span>
                 <span class="friendsNum">${this.room.friends.length}</span>
             </div>
             <div class="headerRight">

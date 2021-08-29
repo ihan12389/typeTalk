@@ -1,5 +1,7 @@
 import { Component } from "../../lib/Component";
 import { Router } from "../../lib/Router";
+import { auth, firestore } from "../../../Firebase";
+
 const datas = require("../../../mockData.json");
 
 class Button extends Component {
@@ -12,17 +14,60 @@ class Button extends Component {
   }
 
   mount() {
-    const rooms = datas.room;
-    const me = datas.myprofile;
-    document.querySelector(".doChat").addEventListener("click", ()=>{
+    var me;
+    firestore.collection("users").doc(auth.currentUser.uid).get().then(doc => me = doc.data());
+
+    // Match users and chatting room
+    document.getElementById("dochat").addEventListener("click", (event) => {
+      // prevent double click event
+      const el = document.getElementById("dochat");
+      el.setAttribute("disabled", "disabled");
+      // can't chat with me
       if (me.uid === this.friend.uid) {
-        alert("자기 자신과는 대화를 할 수 없습니다...")
+        alert("Can't chat with me...");
         return;
       }
-      const room = rooms.find((room)=> room.uids.includes(this.friend.uid))
-      this.router.setData(room);
-      this.router.push("/room");
+
+      // search room with this friend
+      firestore.collection("users").doc(me.uid).collection("rooms").doc(this.friend.uid).get().then(doc => {
+        if (doc.exists) {
+          // already make chatting room with this friend
+          firestore.collection("rooms").doc(doc.data().id).get().then(doc=>{
+            const room = doc.data();
+            this.router.setData(room);
+            this.router.push("/room");
+          })
+        } else {
+          // didn't make chatting room with this friend not yet
+          const roomId = this.createRoomId();
+          const room = {
+            id : roomId,
+            uids : [me.uid, this.friend.uid],
+            friends : [me, this.friend],
+            chats:[],
+          }
+          firestore.collection("users").doc(me.uid).collection("rooms").doc(this.friend.uid).set({
+            "id" : roomId,
+            "title" : `${this.friend.nickname}`
+          });
+          firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(me.uid).set({
+            "id" : roomId,
+            "title" : `${me.nickname}`
+          });
+          firestore.collection("rooms").doc(roomId).set(room);
+          this.router.setData(room);
+          this.router.push("/room");
+        }
+      })
     })
+  }
+
+  // make Room's uid
+  createRoomId = () => {
+    function s4() {
+      return Math.floor((1+Math.random())*0x10000).toString(16).substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 
   render() {
@@ -30,13 +75,13 @@ class Button extends Component {
     <div class="container">
         <div class="button">
             <div class="buttonElement doChat">
-                <div class="imgWrapper">
+                <div class="imgWrapper" id="dochat">
                     <img src="./images/chatting2.png" />
                 </div>
                 <span>DO CHAT</span>
             </div>
             <div class="buttonElement">
-                <div class="imgWrapper">
+                <div class="imgWrapper" id="update">
                     <img src="./images/write.png" />
                 </div>
                 <span>UPDATE</span>
