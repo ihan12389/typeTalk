@@ -7,10 +7,12 @@ const datas = require("../../../mockData.json");
 class Button extends Component {
   friend: any;
   router: any;
+  date: Date;
   constructor(parent, friend, router) {
     super(parent);
     this.friend = friend;
     this.router = router;
+    this.date = new Date()
   }
 
   mount() {
@@ -45,6 +47,14 @@ class Button extends Component {
             uids : [me.uid, this.friend.uid],
             friends : [me, this.friend],
             chats:[],
+            time : Date(),
+            year : this.date.getFullYear(),
+            month : this.date.getMonth()+1,
+            date : this.date.getDate(),
+            hour : this.date.getHours(),
+            minute : this.date.getMinutes(),
+            recentMessage : "",
+            unreadMessage : 0,
           }
           firestore.collection("users").doc(me.uid).collection("rooms").doc(this.friend.uid).set({
             "id" : roomId,

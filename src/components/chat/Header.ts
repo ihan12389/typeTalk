@@ -26,7 +26,7 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>채팅</span>
+                <span>Chatting</span>
                 <div class="headerButtonContainer">
                     <button type="button"><img src="./images/more_c.png" /></button>
                 </div>

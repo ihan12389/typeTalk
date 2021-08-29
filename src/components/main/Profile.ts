@@ -13,7 +13,6 @@ class Profile extends Component {
     document
       .getElementById(`${this.friend.uid}`)
       .addEventListener("click", () => {
-        console.log("클릭");
         this.router.setData(this.friend);
         this.router.push("/profile");
       });

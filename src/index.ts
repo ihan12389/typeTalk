@@ -20,7 +20,6 @@ const datas = require("../mockData.json");
     await firestore.collection("users").doc(user.uid).get().then(data => {
       if (data.exists) {
         const a = data.data();
-        console.log(a);
         mockData.updateMe(a);
         const pages = [
           { page: MainPage, path: "/" },
@@ -33,7 +32,9 @@ const datas = require("../mockData.json");
         router.setData(datas);
         router.push(pages[0].path);
       }
-    });
+      else {
+    };
+    })
   }
   // 로그아웃 상태
   else {

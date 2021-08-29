@@ -8,7 +8,7 @@ class Search extends Component {
     render() {
         return `
         <div class="search">
-            <input type="text" placeholder="🔍 채팅방 이름, 참여자 검색" />
+            <input type="text" placeholder="🔍 Search Chatting and Friends" />
         </div>
         `;
     }

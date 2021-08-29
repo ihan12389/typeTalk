@@ -8,7 +8,6 @@ class LogoutButton extends Component {
 
   mount() {
       document.querySelector(".logoutButton").addEventListener("click", (event)=>{
-          console.log(event)
           auth.signOut();
       })
   }

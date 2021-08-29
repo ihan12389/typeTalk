@@ -15,7 +15,6 @@ class Main extends Component {
     document
       .getElementById(`${this.myprofile.uid}`)
       .addEventListener("click", () => {
-        console.log("클릭");
         this.router.setData(this.myprofile);
         this.router.push("/profile");
       });

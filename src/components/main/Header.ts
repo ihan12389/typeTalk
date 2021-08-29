@@ -4,7 +4,6 @@ class Header extends Component {
   len: any;
   router: any;
   constructor(parent, len, router) {
-    console.log(len);
     super(parent);
     this.len = len;
     this.router = router;
