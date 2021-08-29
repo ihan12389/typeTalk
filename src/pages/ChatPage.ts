@@ -18,11 +18,11 @@ class ChatPage extends Page {
     firestore.collection("users").doc(auth.currentUser.uid).collection("rooms").get().then((snapshot) => {
       snapshot.docs.map(doc => {
         var id = doc.data().id;
-        var title = doc.data().title;
+        var friend = doc.data().friend;
 
         firestore.collection("rooms").doc(id).get().then(doc => {
           if (doc.exists) {
-            new Chat(chatContainer, doc.data(), title, router)
+            new Chat(chatContainer, doc.data(), friend, router)
             this.render();
             this.mount();
           }
@@ -30,6 +30,7 @@ class ChatPage extends Page {
       })
     })
   }
+
 }
 
 export { ChatPage };

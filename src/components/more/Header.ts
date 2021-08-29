@@ -13,10 +13,12 @@ class Header extends Component {
     const more = document.querySelector(".more");
     more.classList.add("focus");
     home.addEventListener("click", () => {
+      home.setAttribute("disabled", "disabled");
       this.router.push("/");
       more.classList.remove("focus");
     });
     chat.addEventListener("click", ()=> {
+      chat.setAttribute("disabled", "disabled");
       this.router.push("/chat");
       more.classList.remove("focus");
     })

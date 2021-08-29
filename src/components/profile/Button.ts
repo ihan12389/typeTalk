@@ -54,15 +54,16 @@ class Button extends Component {
             hour : this.date.getHours(),
             minute : this.date.getMinutes(),
             recentMessage : "",
-            unreadMessage : 0,
           }
           firestore.collection("users").doc(me.uid).collection("rooms").doc(this.friend.uid).set({
             "id" : roomId,
-            "title" : `${this.friend.nickname}`
+            "unreadMessage" : 0,
+            "friend" : this.friend
           });
           firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(me.uid).set({
             "id" : roomId,
-            "title" : `${me.nickname}`
+            "unreadMessage" : 0,
+            "friend" : me
           });
           firestore.collection("rooms").doc(roomId).set(room);
           this.router.setData(room);

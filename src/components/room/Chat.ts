@@ -10,14 +10,14 @@ class Chat extends Component {
   render() {
     return `
     <div class="chat">
-        <img src="${this.chat.profileImg}" />
+        <img src="${this.chat.profileImg ? this.chat.profileImg : "./images/profile.jpg"}" />
             <div class="content">
-                <span class="name">${this.chat.name}</span>
+                <span class="name">${this.chat.nickname}</span>
                 <div class="speechBuble">
                     <span>${this.chat.chatting}</span>
                 </div>
             </div>
-        <span class="time">${this.chat.time}</span>
+        <span class="time">${this.chat.hour}:${this.chat.minute}</span>
     </div>
     `;
   }
