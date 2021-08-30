@@ -489,6 +489,7 @@ body {
       width: 100%;
       display: flex;
       flex-direction: column;
+      overflow-y: scroll;
       .chat {
         width: 100%;
         display: flex;
@@ -535,6 +536,104 @@ body {
           align-self: flex-end;
           font-size: 13px;
           margin-left: 5px;
+        }
+      }
+      .myChat {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px;
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-left: 10px;
+          align-self: flex-start;
+          margin-top: 3px;
+        }
+        .content {
+          display: flex;
+          flex-direction: column;
+          .name {
+            font-size: 17px;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 3px;
+          }
+          .speechBuble {
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 3px;
+            position: relative;
+            margin-right: 10px;
+            max-width: 330px;
+            word-break: break-all;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 5px;
+              right: -13px;
+              border-bottom: 8px solid transparent;
+              border-top: 8px solid #ffffff;
+              border-left: 8px solid #ffffff;
+              border-right: 8px solid transparent;
+            }
+          }
+        }
+        .time {
+          align-self: flex-end;
+          font-size: 13px;
+          margin-right: 5px;
+        }
+      }
+      /* Chatting Room's Content Style */
+      .one {
+      }
+      .top {
+        padding-bottom : 0px;
+        margin-bottom : 0px;
+        .time {
+          display : none;
+        }
+      }
+      .last {
+        padding-top:0px;
+        margin-top:0px;
+        img {
+          visibility: hidden;
+        }
+        .name {
+          display : none;
+        }
+        .content {
+          .speechBuble {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+      .middle {
+        margin-top : 0;
+        margin-bottom : 0;
+        padding-top : 0;
+        padding-bottom : 0;
+        img {
+          visibility: hidden;
+        }
+        .time {
+          display : none;
+        }
+        .name {
+          display : none;
+        }
+        .content {
+          .speechBuble {
+            &:before {
+              display: none;
+            }
+          }
         }
       }
     }

@@ -1,14 +1,15 @@
 import { Component } from "../../lib/Component";
-import {auth} from "../../../Firebase";
 const datas = require("../../../mockData.json");
 
 class Header extends Component {
   room: any;
   router: any;
-  constructor(parent, room, router) {
+  me: any;
+  constructor(parent, room, me, router) {
     super(parent);
     this.room = room;
     this.router = router;
+    this.me = me;
   }
 
   mount() {
@@ -20,7 +21,7 @@ class Header extends Component {
   }
 
   getRoomTitle() {
-    const friendUid = this.room.uids.filter(uid => uid !== auth.currentUser.uid)[0];
+    const friendUid = this.room.uids.filter(uid => uid !== this.me.uid)[0];
     const friend = this.room.friends.filter(friend => friend.uid === friendUid)[0];
     return friend.nickname;
   }

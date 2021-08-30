@@ -7,6 +7,8 @@ class LoginPage extends Page {
     super(router);
     const container = new LoginContainer();
     new Login(container, router);
+    this.render();
+    this.mount();
   }
 }
 

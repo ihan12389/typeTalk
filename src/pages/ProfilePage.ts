@@ -7,13 +7,14 @@ import { Profile } from "../components/profile/Profile";
 
 class ProfilePage extends Page {
   constructor({ router, datas }) {
-    console.log(datas);
     super(router);
     const profileContainer = new ProfileContainer(null);
     new Background(profileContainer, datas[0], router);
     const container = new Container(profileContainer);
     new Profile(container, datas[0]);
     new Button(container, datas[0], router);
+    this.render();
+    this.mount();
   }
 }
 

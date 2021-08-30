@@ -8,6 +8,10 @@ import { Chat } from "../components/chat/Chat";
 import {firestore, auth} from "../../Firebase";
 
 class ChatPage extends Page {
+  idList = [];
+  friendList = [];
+  docList = []
+  chatList = []
   constructor({ router, datas }) {
     super(router);
     const container = new ChatContainer(null);
@@ -19,18 +23,27 @@ class ChatPage extends Page {
       snapshot.docs.map(doc => {
         var id = doc.data().id;
         var friend = doc.data().friend;
-
-        firestore.collection("rooms").doc(id).get().then(doc => {
-          if (doc.exists) {
-            new Chat(chatContainer, doc.data(), friend, router)
-            this.render();
-            this.mount();
-          }
-        })
+        this.idList.push(id);
+        this.friendList.push(friend);
       })
     })
+    .then(() => {
+      firestore.collection("rooms").where("id", "in", this.idList).get().then(snapshot => {
+        snapshot.docs.map(doc=>{
+          this.chatList.push(doc.data());
+        })
+      }).then(()=> {
+        var idx=0;
+        this.chatList.map(chat => {
+          new Chat(chatContainer, chat, this.friendList[idx], router);
+          idx++;
+        })
+      }).then(()=> {
+        this.render();
+        this.mount();
+      }).catch(err => console.log(err.message));
+    })
   }
-
 }
 
 export { ChatPage };

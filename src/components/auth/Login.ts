@@ -16,8 +16,7 @@ class Login extends Component {
         document.getElementById("loginSubmit").onclick = function() {
             var email = (<HTMLInputElement>document.getElementById('email')).value;
             var password = (<HTMLInputElement>document.getElementById('password')).value;
-            console.log(email, password);
-            auth.signInWithEmailAndPassword(email, password).then((user) => console.log(user.user)).catch(error => alert(error.message));
+            auth.signInWithEmailAndPassword(email, password).then((user) => console.log("success")).catch(error => alert(error.message));
         }
         document.getElementById("moveSignup").addEventListener("click", ()=>{
             this.router.push("/signup");

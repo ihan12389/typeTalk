@@ -17,9 +17,9 @@ class Chats extends Component {
   render() {
     return `
         <div class="chat">
-        ${this.components.map((component) => component.render()).join("")}
+          ${this.components.map(component => component.render()).join("")}
         </div>
-        `;
+    `;
   }
 }
 

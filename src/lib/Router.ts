@@ -10,16 +10,10 @@ class Router {
       const page = this.pages.find((page) => page.path === this.nowPage); // 현제 페이지 객체 탐색
       const Page = page.page; // 현재 페이지 객체가 가지고 있는 페이지 컴포넌트
       const currentPage = new Page({ router: this, datas: this.datas }); // 현재 페이지의 컴포넌트 객체 생성
-      currentPage.render();
-      currentPage.mount();
     };
-    // window.addEventListener('hashchange', () => {
-    //     console.log("hashchange");
-    // })
   }
 
   push(pageName) {
-    window.location.hash = "";
     window.location.hash = pageName;
   }
 

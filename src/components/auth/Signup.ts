@@ -17,7 +17,6 @@ class Signup extends Component {
             const password = (<HTMLInputElement>document.getElementById("password")).value;
 
             auth.createUserWithEmailAndPassword(email, password).then((user) => {
-                console.log(user.user.uid)
                 const userInform = {
                     nickname : nickname,
                     email : email,
@@ -28,7 +27,6 @@ class Signup extends Component {
                     friends:[]
                 }
                 firestore.collection("users").doc(user.user.uid).set(userInform).catch(error => error); 
-                console.log(userInform);
             }).catch(error => alert(error.message));
         }
         document.getElementById("moveLogin").addEventListener("click", ()=>{

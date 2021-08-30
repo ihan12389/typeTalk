@@ -8,22 +8,26 @@ import {firestore, auth} from "../../Firebase";
 
 
 class RoomPage extends Page {
+  me: any;
   constructor({ router, datas }) {
-    console.log(datas[0]);
     super(router);
+
+    this.me = auth.currentUser;
+
     const container = new RoomContainer(null);
-    new Header(container, datas[0], router);
+    new Header(container, datas[0], this.me, router);
     const content = new Content(container, datas[0].chats);
+
     firestore.collection("rooms").doc(datas[0].id).collection("chats").onSnapshot(snapshot => {
       content.components = [];
       snapshot.docs.map(doc => {
-        new Chat(content, doc.data());
-        console.log(doc.data());
+        new Chat(content, doc.data(), this.me);
       })
       this.render();
       this.mount();
     })
-    new Input(container, datas[0]);
+
+    new Input(container, datas[0], this.me);
   }
 }
 

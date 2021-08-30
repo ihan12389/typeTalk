@@ -7,6 +7,8 @@ class SignupPage extends Page {
     super(router);
     const container = new SignupContainer();
     new Signup(container, router);
+    this.render();
+    this.mount();
   }
 }
 
