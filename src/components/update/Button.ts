@@ -67,10 +67,6 @@ class Button extends Component {
         }
       })
     })
-    document.querySelector(".update").addEventListener("click", () => {
-      this.router.setData(this.me);
-      this.router.push("/update");
-    })
   }
 
   // make Room's uid
@@ -82,6 +78,7 @@ class Button extends Component {
   }
 
   render() {
+    console.log(this.me);
     return `
     <div class="container">
         <div class="button">
@@ -91,14 +88,6 @@ class Button extends Component {
                 </div>
                 <span>DO CHAT</span>
             </div>
-            ${this.me.uid === this.friend.uid ?`
-            <div class="buttonElement update">
-                <div class="imgWrapper" id="update">
-                    <img src="./images/write.png" />
-                </div>
-                <span>UPDATE</span>
-            </div>
-            ` : "" }
         </div>
     </div>
     `;

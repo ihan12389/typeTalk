@@ -3,8 +3,10 @@ import {firestore} from "../../../Firebase";
 import {SearchElement} from "./SearchElement";
 
 class Search extends Component {
-    constructor(parent) {
+    me: any;
+    constructor(parent, me) {
         super(parent);
+        this.me = me;
     }
 
     mount() {
@@ -32,7 +34,7 @@ class Search extends Component {
                 // 검색 데이터가 있다면 차례대로 렌더링합니다.
                 snapshot.docs.map((doc) => {
                     const data = doc.data();
-                    const addElement = new SearchElement(this, data);
+                    const addElement = new SearchElement(this, data, this.me);
                     document.querySelector(".searchBox").innerHTML += addElement.render();
                     mountArray.push(addElement);
                 })

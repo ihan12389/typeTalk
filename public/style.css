@@ -1004,10 +1004,15 @@ body {
 
 .profileContainerWrapper .profileContainer .backgroundImg {
   height: 600px;
+  min-height: 600px;
+  max-height: 600px;
   background-color: #cbab18;
 }
 
 .profileContainerWrapper .profileContainer .backgroundImg img {
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
   height: 100%;
   width: 100%;
   z-index: 1;
@@ -1025,6 +1030,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
 }
 
 .profileContainerWrapper .profileContainer .container .profile {
@@ -1047,6 +1053,20 @@ body {
   margin-top: 20px;
 }
 
+.profileContainerWrapper .profileContainer .container .profile .name input {
+  font-size: 22px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.profileContainerWrapper .profileContainer .container .profile .name img {
+  height: 18px;
+  width: 18px;
+  margin-left: 5px;
+  margin-right: -23px;
+  cursor: pointer;
+}
+
 .profileContainerWrapper .profileContainer .container .profile .email {
   padding: 5px 10px;
   border-radius: 50px;
@@ -1066,16 +1086,52 @@ body {
   border-radius: 65px;
 }
 
-.profileContainerWrapper .profileContainer .container .button {
+.profileContainerWrapper .profileContainer .container .profile .message {
+  max-height: 90px;
+  margin-top: 15px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  height: 3.6em;
+  text-align: center;
+}
+
+.profileContainerWrapper .profileContainer .container .profile .message img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.profileContainerWrapper .profileContainer .container .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 100px;
-  margin-top: 90px;
-  margin-bottom: 30px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 30px;
 }
 
-.profileContainerWrapper .profileContainer .container .button .buttonElement {
+.profileContainerWrapper .profileContainer .container .container .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 100px;
+}
+
+.profileContainerWrapper .profileContainer .container .container .button .buttonElement {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1093,7 +1149,7 @@ body {
   cursor: pointer;
 }
 
-.profileContainerWrapper .profileContainer .container .button .buttonElement div {
+.profileContainerWrapper .profileContainer .container .container .button .buttonElement div {
   background-color: rgba(0, 0, 0, 0.1);
   width: 70px;
   height: 70px;
@@ -1111,11 +1167,11 @@ body {
           align-items: center;
 }
 
-.profileContainerWrapper .profileContainer .container .button .buttonElement div img {
+.profileContainerWrapper .profileContainer .container .container .button .buttonElement div img {
   width: 65%;
 }
 
-.profileContainerWrapper .profileContainer .container .button .buttonElement span {
+.profileContainerWrapper .profileContainer .container .container .button .buttonElement span {
   font-size: 14px;
   font-weight: bold;
 }
@@ -1150,5 +1206,53 @@ body {
   padding: 15px 25px;
   border-radius: 40px;
   cursor: pointer;
+}
+
+/* update Style */
+.backgroundFileInput {
+  display: none;
+}
+
+.profileFileInput {
+  display: none;
+}
+
+.myBackground {
+  cursor: pointer;
+}
+
+.myThumbnail {
+  cursor: pointer;
+}
+
+.messageForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+.messageForm textarea {
+  width: 400px;
+  margin: 0;
+  padding: 0;
+  resize: none;
+}
+
+.messageForm img {
+  margin-top: 5px;
+  width: 30px;
+  height: 30px;
 }
 /*# sourceMappingURL=style.css.map */

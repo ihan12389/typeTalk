@@ -1,6 +1,4 @@
 import { Component } from "../../lib/Component";
-import { Profile } from "./Profile";
-import { firestore, auth } from "../../../Firebase";
 
 class Main extends Component {
   myprofile: any;

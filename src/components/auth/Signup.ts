@@ -1,6 +1,5 @@
 import { Component } from "../../lib/Component";
 import {auth, firestore} from "../../../Firebase";
-import { Router } from "../../lib/Router";
 
 class Signup extends Component {
     app = document.getElementById("app");

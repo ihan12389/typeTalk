@@ -28,6 +28,11 @@ class ChatPage extends Page {
       })
     })
     .then(() => {
+      if (this.idList.length == 0) {
+        this.render();
+        this.mount();
+        return;
+      }
       firestore.collection("rooms").where("id", "in", this.idList).get().then(snapshot => {
         snapshot.docs.map(doc=>{
           this.chatList.push(doc.data());

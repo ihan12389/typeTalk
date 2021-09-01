@@ -676,8 +676,13 @@ body {
     flex-direction: column;
     .backgroundImg {
       height: 600px;
+      min-height : 600px;
+      max-height : 600px;
       background-color: #cbab18;
       img {
+        height: 600px;
+        min-height : 600px;
+        max-height : 600px;
         height: 100%;
         width: 100%;
         z-index: 1;
@@ -688,6 +693,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      height : 100%;
       .profile {
         display: flex;
         flex-direction: column;
@@ -697,6 +703,18 @@ body {
           font-size: 22px;
           font-weight: bold;
           margin-top: 20px;
+          input {
+            font-size: 22px;
+            font-weight : bold;
+            pointer-events:none;
+          }
+          img {
+            height : 18px;
+            width : 18px;
+            margin-left : 5px;
+            margin-right : -23px;
+            cursor : pointer;
+          }
         }
         .email {
           padding: 5px 10px;
@@ -713,38 +731,65 @@ body {
           height: 160px;
           border-radius: 65px;
         }
-      }
-      .button {
-        display: flex;
-        gap: 100px;
-        margin-top: 90px;
-        .buttonElement {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 80px;
-          cursor: pointer;
-          div {
-            background-color: rgba(0, 0, 0, 0.1);
-            width: 70px;
-            height: 70px;
-            padding: 10px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 65%;
-            }
-          }
-          span {
-            font-size: 14px;
-            font-weight: bold;
+        .message {
+          max-height : 90px;
+          margin-top: 15px;
+          font-size: 15px;
+          color :rgba(0, 0, 0, 0.5);
+          width : 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-all;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          line-height: 1.2em;
+          height: 3.6em;
+          text-align: center;
+          img{
+            width : 20px;
+            height : 20px;
+            cursor : pointer;
           }
         }
-        margin-bottom: 30px;
+      }
+      .container {
+        display : flex;
+        justify-content: flex-end;
+        padding : 0;
+        margin : 0;
+        padding-bottom : 30px;
+        .button {
+          display: flex;
+          align-items: flex-end;
+          gap: 100px;
+          .buttonElement {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            cursor: pointer;
+            div {
+              background-color: rgba(0, 0, 0, 0.1);
+              width: 70px;
+              height: 70px;
+              padding: 10px;
+              border-radius: 50%;
+              margin-bottom: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img {
+                width: 65%;
+              }
+            }
+            span {
+              font-size: 14px;
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
     .closeProfile {
@@ -773,5 +818,41 @@ body {
     padding : 15px 25px;
     border-radius: 40px;
     cursor: pointer;
+  }
+}
+
+/* update Style */
+.backgroundFileInput {
+  display : none;
+}
+.profileFileInput {
+  display : none;
+}
+
+.myBackground {
+  cursor : pointer;
+}
+
+.myThumbnail {
+  cursor : pointer;
+}
+
+.messageForm {
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width : 500px;
+  margin-top : 20px;
+  textarea {
+    width : 400px;
+    margin : 0;
+    padding : 0;
+    resize : none;
+  }
+  img {
+    margin-top : 5px;
+    width : 30px;
+    height : 30px;
   }
 }

@@ -13,6 +13,7 @@ class Profile extends Component {
         <img src="${this.friend.profileImg ? this.friend.profileImg : "./images/profile.jpg"}" class="thumbnail" />
         <span class="name">${this.friend.nickname}</span>
         <div class="email"><span>${this.friend.email}</span></div>
+        <span class="message">${this.friend.profileMessage !== "" ? this.friend.profileMessage : ""}</span>
     </div>
     `;
   }

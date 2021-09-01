@@ -9,6 +9,7 @@ import { SignupPage } from "./pages/SignupPage";
 import {mockData} from "../mockData";
 import { firestore } from "../Firebase";
 import { MorePage } from "./pages/MorePage";
+import { ProfileUpdatePage } from "./pages/ProfileUpdatePage";
 
 const datas = require("../mockData.json");
 
@@ -20,16 +21,16 @@ const datas = require("../mockData.json");
     await firestore.collection("users").doc(user.uid).get().then(data => {
       if (data.exists) {
         const a = data.data();
-        mockData.updateMe(a);
         const pages = [
           { page: MainPage, path: "/" },
           { page: ChatPage, path: "/chat" },
           { page: RoomPage, path: "/room" },
           { page: ProfilePage, path: "/profile" },
-          { page: MorePage, path: "/more"}
+          { page: MorePage, path: "/more"},
+          { page: ProfileUpdatePage, path: "/update"}
         ];
         const router = new Router({pages: pages})
-        router.setData(datas);
+        router.setData(a);
         router.push(pages[0].path);
       }
       else {
