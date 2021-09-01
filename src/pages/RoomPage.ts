@@ -5,6 +5,7 @@ import { Content } from "../components/room/Content";
 import { Chat } from "../components/room/Chat";
 import {Input} from "../components/room/Input";
 import {firestore, auth} from "../../Firebase";
+import { timeStamp } from "console";
 
 
 class RoomPage extends Page {
@@ -20,13 +21,17 @@ class RoomPage extends Page {
 
     firestore.collection("rooms").doc(datas[0].id).collection("chats").onSnapshot(snapshot => {
       content.components = [];
+
       snapshot.docs.map(doc => {
         new Chat(content, doc.data(), this.me);
       })
+
       this.render();
       this.mount();
     })
 
+    this.render();
+    this.mount();
     new Input(container, datas[0], this.me);
   }
 }

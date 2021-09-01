@@ -22,6 +22,7 @@ class Content extends Component {
     var idx2 = 0;
     var back;
     this.stateArray.fill("", this.components.length);
+    this.returnString = "";
     return `
     <div class="roomContent">
     ${

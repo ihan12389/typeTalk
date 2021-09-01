@@ -43,7 +43,7 @@ class Button extends Component {
             uids : [this.me.uid, this.friend.uid],
             friends : [this.me, this.friend],
             chats:[],
-            time : Date(),
+            time : Date.now(),
             year : this.date.getFullYear(),
             month : this.date.getMonth()+1,
             date : this.date.getDate(),
@@ -54,12 +54,14 @@ class Button extends Component {
           firestore.collection("users").doc(this.me.uid).collection("rooms").doc(this.friend.uid).set({
             "id" : roomId,
             "unreadMessage" : 0,
-            "friend" : this.friend
+            "friend" : this.friend,
+            "time" : Date.now(),
           });
           firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(this.me.uid).set({
             "id" : roomId,
             "unreadMessage" : 0,
-            "friend" : this.me
+            "friend" : this.me,
+            "time" : Date.now(),
           });
           firestore.collection("rooms").doc(roomId).set(room);
           this.router.setData(room);

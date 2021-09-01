@@ -19,7 +19,8 @@ class ChatPage extends Page {
     new Search(container);
     const chatContainer = new Chats(container, datas[0].chats, router);
 
-    firestore.collection("users").doc(auth.currentUser.uid).collection("rooms").get().then((snapshot) => {
+    // 현재 유저가 가지고 있는 룸의 리스트를 구합니다.
+    firestore.collection("users").doc(auth.currentUser.uid).collection("rooms").orderBy("time", "desc").get().then((snapshot) => {
       snapshot.docs.map(doc => {
         var id = doc.data().id;
         var friend = doc.data().friend;
@@ -33,7 +34,8 @@ class ChatPage extends Page {
         this.mount();
         return;
       }
-      firestore.collection("rooms").where("id", "in", this.idList).get().then(snapshot => {
+      // 그 룸의 리스트를 통해 룸의 정보들을 불러옵니다.
+      firestore.collection("rooms").where("id", "in", this.idList).orderBy("time", "desc").get().then(snapshot => {
         snapshot.docs.map(doc=>{
           this.chatList.push(doc.data());
         })
