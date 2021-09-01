@@ -30,22 +30,22 @@ class Header extends Component {
             <div class="headerBar">
                 <span>LOGOUT</span>
                 <div class="headerButtonContainer">
-                    <button type="button"><img src="./images/add.png" /></button>
-                    <button type="button"><img src="./images/more_c.png" /></button>
+                    <button type="button"><img src="./public/images/add.png" /></button>
+                    <button type="button"><img src="./public/images/more_c.png" /></button>
                 </div>
             </div>
             <div class="headerTab">
                 <div class="tabButton home">
-                    <img src="./images/people.png" />
+                    <img src="./public/images/people.png" />
                 </div>
                 <div class="tabButton chat">
-                    <img src="./images/chatting.png" />
+                    <img src="./public/images/chatting.png" />
                 </div>
                 <div class="tabButton news">
-                    <img src="./images/news.png" />
+                    <img src="./public/images/news.png" />
                 </div>
                 <div class="tabButton more">
-                    <img src="./images/more_r.png" />
+                    <img src="./public/images/more_r.png" />
                 </div>
             </div>
         </div>

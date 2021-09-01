@@ -20,7 +20,7 @@ class Background extends Component {
   render() {
     return `
     <div class="backgroundImg">
-            <img src="${this.friend.background ? this.friend.background : "./images/background.jpg"}" />
+            <img src="${this.friend.background ? this.friend.background : "./public/images/background.jpg"}" />
             <span class="closeProfile">X</span>
     </div>
     `;

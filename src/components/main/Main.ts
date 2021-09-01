@@ -28,7 +28,7 @@ class Main extends Component {
             </div>
             <div class="myProfile" id="${this.myprofile.uid}">
                 <div class="profileLeft">
-                    <img src="${this.myprofile.profileImg==="" ? "./images/profile.jpg" : this.myprofile.profileImg}" />
+                    <img src="${this.myprofile.profileImg==="" ? "./public/images/profile.jpg" : this.myprofile.profileImg}" />
                     <span>${this.myprofile.nickname}</span>
                 </div>
                 ${

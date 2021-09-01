@@ -36,7 +36,7 @@ class Signup extends Component {
     render() {
         return `
         <div class="loginLogoContainer">
-            <img class="loginLogo" src="images/logo.png" alt="" />
+            <img class="loginLogo" src="./public/images/logo.png" alt="" />
         </div>
         <div class="loginFormContainer">
             <div class="loginInputContainer">

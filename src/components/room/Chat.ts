@@ -26,11 +26,11 @@ class Chat extends Component {
           <span>${this.chat.chatting}</span>
         </div>
       </div>
-      <img src="${this.chat.profileImg ? this.chat.profileImg : "./images/profile.jpg"}" />
+      <img src="${this.chat.profileImg ? this.chat.profileImg : "./public/images/profile.jpg"}" />
     </div>
     ` : `
     <div class="chat ${this.state}">
-        <img src="${this.chat.profileImg ? this.chat.profileImg : "./images/profile.jpg"}" />
+        <img src="${this.chat.profileImg ? this.chat.profileImg : "./public/images/profile.jpg"}" />
             <div class="content">
                 <span class="name">${this.chat.nickname}</span>
                 <div class="speechBuble">

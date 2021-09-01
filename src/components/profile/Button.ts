@@ -87,14 +87,14 @@ class Button extends Component {
         <div class="button">
             <div class="buttonElement doChat">
                 <div class="imgWrapper" id="dochat">
-                    <img src="./images/chatting2.png" />
+                    <img src="./public/images/chatting2.png" />
                 </div>
                 <span>DO CHAT</span>
             </div>
             ${this.me.uid === this.friend.uid ?`
             <div class="buttonElement update">
                 <div class="imgWrapper" id="update">
-                    <img src="./images/write.png" />
+                    <img src="./public/images/write.png" />
                 </div>
                 <span>UPDATE</span>
             </div>

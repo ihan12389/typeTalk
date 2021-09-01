@@ -49,14 +49,14 @@ class Profile extends Component {
       if (srcArr[srcArr.length-1] == "write.png") {
         input.style.pointerEvents = "all";
         input.focus();
-        img.src = "./images/done.png";
+        img.src = "./public/images/done.png";
       } else if (srcArr[srcArr.length-1] == "done.png") {
         if (input.value == "") {
           alert("you must input something...")
           return
         }
         firestore.collection("users").doc(this.me.uid).update({"nickname" : input.value}).catch(err=>console.log(err.message))
-        img.src="./images/write.png"
+        img.src="./public/images/write.png"
         input.style.pointerEvents = "none";
       }
     })
@@ -72,7 +72,7 @@ class Profile extends Component {
         const text = (<HTMLTextAreaElement>document.querySelector(".messageInput")).value;
         firestore.collection("users").doc(this.me.uid).update({"profileMessage" : text }).catch((err)=>console.log(err.message))
         message.classList.add("message");
-        message.innerHTML = `${this.me.profileMessage}<img id='clickMessage' src='./images/write.png' />`;
+        message.innerHTML = `${this.me.profileMessage}<img id='clickMessage' src='./public/images/write.png' />`;
       })
     });
   }
@@ -105,10 +105,10 @@ class Profile extends Component {
   render() {
     return `
     <div class="profile">
-        <img src="${this.me.profileImg ? this.me.profileImg : "./images/profile.jpg"}" class="thumbnail myThumbnail" id="thumbnailUpdate" />
-        <span class="name"><input type="text" id="myName" value="${this.me.nickname}" /><img src="./images/write.png" id="clickName" /></span>
+        <img src="${this.me.profileImg ? this.me.profileImg : "./public/images/profile.jpg"}" class="thumbnail myThumbnail" id="thumbnailUpdate" />
+        <span class="name"><input type="text" id="myName" value="${this.me.nickname}" /><img src="./public/images/write.png" id="clickName" /></span>
         <div class="email"><span>${this.me.email}</span></div>
-        <span class="message" id="myMessage">${this.me.profileMessage !== "" ? `${this.me.profileMessage}<img id='clickMessage' src='./images/write.png' />` : "<img id='clickMessage' src='./images/write.png' />" }</span>
+        <span class="message" id="myMessage">${this.me.profileMessage !== "" ? `${this.me.profileMessage}<img id='clickMessage' src='./public/images/write.png' />` : "<img id='clickMessage' src='./images/write.png' />" }</span>
         <input class="profileFileInput" type="file" accept="images/*" />
         <div class="add"></div>
     </div>

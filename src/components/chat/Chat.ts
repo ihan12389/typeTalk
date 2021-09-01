@@ -26,7 +26,7 @@ class Chat extends Component {
     return `
     <div class="chatRoom" id="${this.chat.id}">
         <div class="imageContainer">
-            <img src="${this.friend.profileImg ? this.friend.profileImg : "./images/profile.jpg"}" />
+            <img src="${this.friend.profileImg ? this.friend.profileImg : "./public/images/profile.jpg"}" />
         </div>
         <div class="roomContent">
             <span class="roomTitle">${this.friend.nickname}</span>

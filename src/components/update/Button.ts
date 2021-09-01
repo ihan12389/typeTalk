@@ -84,7 +84,7 @@ class Button extends Component {
         <div class="button">
             <div class="buttonElement doChat">
                 <div class="imgWrapper" id="dochat">
-                    <img src="./images/chatting2.png" />
+                    <img src="./public/images/chatting2.png" />
                 </div>
                 <span>DO CHAT</span>
             </div>

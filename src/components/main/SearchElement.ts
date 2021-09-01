@@ -42,7 +42,7 @@ class SearchElement extends Component {
     render() {
         return `
         <div class="searchElement">
-            <img src="${this.user.profileImg ? this.user.profileImg : "./images/profile.jpg"}" />
+            <img src="${this.user.profileImg ? this.user.profileImg : "./public/images/profile.jpg"}" />
             <div class="searchText">
                 <span class="nickname">${this.user.nickname}</span>
                 <span class="email">${this.user.email}</span>

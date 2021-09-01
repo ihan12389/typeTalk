@@ -62,7 +62,7 @@ class Background extends Component {
   render() {
     return `
     <div class="backgroundImg myBackground">
-      <img src="${this.me.background ? this.me.background : "./images/background.jpg"}" />
+      <img src="${this.me.background ? this.me.background : "./public/images/background.jpg"}" />
       <span class="closeProfile">X</span>
       <input class="backgroundFileInput" type="file" accept="images/*" />
     </div>

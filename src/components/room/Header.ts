@@ -30,13 +30,13 @@ class Header extends Component {
     return `
         <div class="headerBar">
             <div class="headerLeft">
-                <img class="back" src="./images/back.png" />
+                <img class="back" src="./public/images/back.png" />
                 <span class="roomName">${this.getRoomTitle()}</span>
                 <span class="friendsNum">${this.room.friends.length}</span>
             </div>
             <div class="headerRight">
-                <img class="search" src="./images/search.png" />
-                <img class="menu" src="./images/menu.png" />
+                <img class="search" src="./public/images/search.png" />
+                <img class="menu" src="./public/images/menu.png" />
             </div>
         </div>
         `;
