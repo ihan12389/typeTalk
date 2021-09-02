@@ -1,5 +1,5 @@
 import { Component } from "../../lib/Component";
-import { auth, firestore } from "../../../Firebase";
+import { firestore } from "../../../Firebase";
 
 class Input extends Component {
     room: any;
@@ -21,10 +21,14 @@ class Input extends Component {
         chatInput.focus();
         // when send chat message
         document.querySelector(".chatForm").addEventListener("submit", (event)=>{
+            event.preventDefault();
             // get the chat's text
             const chat = (<HTMLInputElement>chatInput).value;
             // if nothing typing
-            if (chat == "") return;
+            if (chat == "") {
+                alert("you need something typing...")
+                return;
+            }
             // send chatting to database
             firestore.collection("rooms").doc(this.room.id).collection("chats").doc(`${Date.now()}`).set({
                 uid : myInform.uid,

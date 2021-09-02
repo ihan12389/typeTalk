@@ -28,29 +28,29 @@ class Content extends Component {
     ${
       this.components.map(component => {
         if (idx == 0) {
-                this.stateArray[0] = "top";
-                back = component.chat.uid;
-              } else if(idx == this.components.length-1) {
-                if (back !== component.chat.uid) {
-                  if (this.stateArray[idx-1] == "top") 
-                  this.stateArray[idx-1] = "one";
-                  else 
-                  this.stateArray[idx] = "last";
+          this.stateArray[0] = "top";
+          back = component.chat.uid;
+        } else if(idx == this.components.length-1) {
+          if (back !== component.chat.uid) {
+            if (this.stateArray[idx-1] == "top") 
+              this.stateArray[idx-1] = "one";
+            else 
+              this.stateArray[idx-1] = "last";
                   
-                  this.stateArray[idx] = "one";
-                } else {back == component.chat.uid} {
-                  this.stateArray[idx] = "last"
-                }
-                back = component.chat.uid;
-              } else {
-                if (back !== component.chat.uid) {
-                  if (this.stateArray[idx-1] == "top")
-                  this.stateArray[idx-1] = "one"
-                  else
+            this.stateArray[idx] = "one";
+          } else if (back == component.chat.uid) {
+            this.stateArray[idx] = "last"
+          }
+          back = component.chat.uid;
+        } else {
+          if (back !== component.chat.uid) {
+            if (this.stateArray[idx-1] == "top")
+              this.stateArray[idx-1] = "one"
+                else
                   this.stateArray[idx-1] = "last"
                   
-                  this.stateArray[idx] = "top"
-                } else {
+                this.stateArray[idx] = "top"
+              } else {
                   this.stateArray[idx] = "middle";
                 }
                 back = component.chat.uid;

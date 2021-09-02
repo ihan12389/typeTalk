@@ -18,21 +18,19 @@ class RoomPage extends Page {
     const container = new RoomContainer(null);
     new Header(container, datas[0], this.me, router);
     const content = new Content(container, datas[0].chats);
+    
+    new Input(container, datas[0], this.me);
 
     firestore.collection("rooms").doc(datas[0].id).collection("chats").onSnapshot(snapshot => {
       content.components = [];
-
+      
       snapshot.docs.map(doc => {
         new Chat(content, doc.data(), this.me);
       })
-
+      
       this.render();
       this.mount();
     })
-
-    this.render();
-    this.mount();
-    new Input(container, datas[0], this.me);
   }
 }
 

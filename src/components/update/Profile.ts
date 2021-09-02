@@ -61,18 +61,23 @@ class Profile extends Component {
       }
     })
 
+    this.addEventMessage();
+  }
+
+  addEventMessage = () => {
     /* Update Profile Message */
     document.getElementById("clickMessage").addEventListener(("click"), ()=>{
       console.log("clickMessage")
       const message = document.querySelector(".message");
       message.classList.remove("message");
-      message.innerHTML = `<div class="messageForm"><textarea class="messageInput">${this.me.profileMessage}</textarea><img src="./images/done.png" id="submitMessage" /></div>`
+      message.innerHTML = `<div class="messageForm"><textarea class="messageInput">${this.me.profileMessage}</textarea><img src="./public/images/done.png" id="submitMessage" /></div>`
       document.getElementById("submitMessage").addEventListener("click", () => {
         console.log("submitMessage")
         const text = (<HTMLTextAreaElement>document.querySelector(".messageInput")).value;
         firestore.collection("users").doc(this.me.uid).update({"profileMessage" : text }).catch((err)=>console.log(err.message))
         message.classList.add("message");
         message.innerHTML = `${this.me.profileMessage}<img id='clickMessage' src='./public/images/write.png' />`;
+        this.addEventMessage();
       })
     });
   }
@@ -108,7 +113,7 @@ class Profile extends Component {
         <img src="${this.me.profileImg ? this.me.profileImg : "./public/images/profile.jpg"}" class="thumbnail myThumbnail" id="thumbnailUpdate" />
         <span class="name"><input type="text" id="myName" value="${this.me.nickname}" /><img src="./public/images/write.png" id="clickName" /></span>
         <div class="email"><span>${this.me.email}</span></div>
-        <span class="message" id="myMessage">${this.me.profileMessage !== "" ? `${this.me.profileMessage}<img id='clickMessage' src='./public/images/write.png' />` : "<img id='clickMessage' src='./images/write.png' />" }</span>
+        <span class="message" id="myMessage">${this.me.profileMessage !== "" ? `${this.me.profileMessage}<img id='clickMessage' src='./public/images/write.png' />` : "<img id='clickMessage' src='./public/images/write.png' />" }</span>
         <input class="profileFileInput" type="file" accept="images/*" />
         <div class="add"></div>
     </div>

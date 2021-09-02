@@ -5,7 +5,8 @@ class Router {
 
   constructor({ pages }) {
     this.pages = pages;
-    window.onhashchange = () => {
+    window.onhashchange = (event) => {
+      console.log(event);
       this.nowPage = window.location.hash.replace("#", ""); // 현재의 hash값
       const page = this.pages.find((page) => page.path === this.nowPage); // 현제 페이지 객체 탐색
       const Page = page.page; // 현재 페이지 객체가 가지고 있는 페이지 컴포넌트
@@ -14,10 +15,13 @@ class Router {
   }
 
   push(pageName) {
+    console.log(pageName)
+    window.location.hash = "?";
     window.location.hash = pageName;
   }
 
   setData(data) {
+    console.log(data)
     this.datas = [];
     this.datas.push(data);
   }
