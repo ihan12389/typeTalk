@@ -16,6 +16,13 @@ class Input extends Component {
         // find my information
         var myInform;
         firestore.collection("users").doc(this.me.uid).get().then(doc => myInform = doc.data())
+        // find friends id
+        var friendId;
+        this.room.friends.map((friend) => {
+            if (friend.uid !== this.me.uid) {
+                friendId = friend.uid;
+            } 
+        })
         // focus Input
         const chatInput = document.getElementById("chatInput");
         chatInput.focus();
@@ -40,6 +47,8 @@ class Input extends Component {
                 date : this.date.getDate(),
                 hour : this.date.getHours(),
                 minute : this.date.getMinutes(),
+                sender : this.me.uid,
+                receiver : friendId,
                 id : Date.now()
             }).then(() => {
                 (<HTMLInputElement>chatInput).value = "";

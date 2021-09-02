@@ -19,9 +19,9 @@ const db = admin.firestore();
 
 exports.myFunction = functions.firestore
     .document("/users/{myId}")
-    .onUpdate((change, context) => {
+    .onUpdate((snap, context) => {
       // 새롭게 바뀐 내 정보
-      const newValue = change.after.data();
+      const newValue = snap.data();
       const myId = context.params.myId;
       db.collection("users")
           .where("friends", "array-contains-any", [myId])
@@ -36,6 +36,61 @@ exports.myFunction = functions.firestore
                   .update(newValue);
             });
           });
+    });
+
+// 채팅을 보낼 때마다
+exports.sendChat = functions.firestore
+    .document("/rooms/{roomId}/chats/{chatId}")
+    .onCreate((snap, context) => {
+      // 새롭게 등록된 채팅 정보
+      const newChat = snap.data();
+      const id = newChat.id;
+      const year = newChat.year;
+      const month = newChat.month;
+      const date = newChat.date;
+      const hour = newChat.hour;
+      const minute = newChat.minute;
+      const sender = newChat.sender;
+      const receiver = newChat.receiver;
+      const message = newChat.chatting;
+      console.log(
+          newChat,
+          id,
+          year,
+          month,
+          date,
+          hour,
+          minute,
+          sender,
+          receiver,
+          message);
+      db.collection("users")
+          .doc(sender)
+          .collection("rooms")
+          .doc(context.params.roomId)
+          .update({
+            "time": id,
+            "recentMessage": message,
+            "year": year,
+            "month": month,
+            "date": date,
+            "hour": hour,
+            "minute": minute,
+          }).catch((err) => console.log(err.message));
+      db.collection("users")
+          .doc(receiver)
+          .collection("rooms")
+          .doc(context.params.roomId)
+          .update({
+            "time": id,
+            "unreadMessage": admin.firestore.FieldValue.increment(1),
+            "recentMessage": message,
+            "year": year,
+            "month": month,
+            "date": date,
+            "hour": hour,
+            "minute": minute,
+          }).catch((err) => console.log(err.message));
     });
 
 // // Create and Deploy Your First Cloud Functions

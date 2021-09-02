@@ -49,19 +49,30 @@ class Button extends Component {
             date : this.date.getDate(),
             hour : this.date.getHours(),
             minute : this.date.getMinutes(),
-            recentMessage : "",
           }
-          firestore.collection("users").doc(this.me.uid).collection("rooms").doc(this.friend.uid).set({
+          firestore.collection("users").doc(this.me.uid).collection("rooms").doc(roomId).set({
             "id" : roomId,
             "unreadMessage" : 0,
             "friend" : this.friend,
             "time" : Date.now(),
+            "recentMessage": "",
+            "year": this.date.getFullYear(),
+            "month": this.date.getMonth()+1,
+            "date": this.date.getDate(),
+            "hour": this.date.getHours(),
+            "minute": this.date.getMinutes(),
           });
-          firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(this.me.uid).set({
+          firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(roomId).set({
             "id" : roomId,
             "unreadMessage" : 0,
             "friend" : this.me,
             "time" : Date.now(),
+            "recentMessage": "",
+            "year": this.date.getFullYear(),
+            "month": this.date.getMonth()+1,
+            "date": this.date.getDate(),
+            "hour": this.date.getHours(),
+            "minute": this.date.getMinutes(),
           });
           firestore.collection("rooms").doc(roomId).set(room);
           this.router.setData(room);
