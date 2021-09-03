@@ -5,8 +5,6 @@ import { Content } from "../components/room/Content";
 import { Chat } from "../components/room/Chat";
 import {Input} from "../components/room/Input";
 import {firestore, auth} from "../../Firebase";
-import { timeStamp } from "console";
-
 
 class RoomPage extends Page {
   me: any;

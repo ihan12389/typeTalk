@@ -5,24 +5,15 @@ admin.initializeApp();
 
 const db = admin.firestore();
 
-// exports.myFunction = functions.firestore
-//     .document("/users/{myId}")
-//     .onUpdate((change, context) => {
-//       const newValue = change.after.data();
-//       const friends = newValue.friends;
-//       friends.map((friend) => {
-//         db.collection("users")
-//             .doc(friend).collection("friends")
-//             .doc(context.params.myId).update(newValue);
-//       });
-//     });
-
+// 내 정보를 바꿀 때
 exports.myFunction = functions.firestore
     .document("/users/{myId}")
     .onUpdate((snap, context) => {
       // 새롭게 바뀐 내 정보
-      const newValue = snap.data();
+      const newValue = snap.after.data();
       const myId = context.params.myId;
+      console.log(newValue);
+      // 나를 친구로 등록한 친구들 데이터베이스 안의 내 정보를 수정
       db.collection("users")
           .where("friends", "array-contains-any", [myId])
           .get().then((snapshot) => {
@@ -35,7 +26,20 @@ exports.myFunction = functions.firestore
                   .doc(myId)
                   .update(newValue);
             });
-          });
+          }).catch((err) => console.log(err.message));
+      // 나와 채팅창을 공유하는 모든 유저들의 정보를 수정
+      db.collection("users")
+          .doc(myId)
+          .collection("rooms")
+          .get().then((snapshot) => {
+            snapshot.docs.map((doc) => {
+              db.collection("users")
+                  .doc(doc.data().friend.uid)
+                  .collection("rooms")
+                  .doc(doc.data().id)
+                  .update({"friend": newValue});
+            });
+          }).catch((err) => console.log(err.message));
     });
 
 // 채팅을 보낼 때마다
