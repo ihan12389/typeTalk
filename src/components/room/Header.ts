@@ -16,6 +16,7 @@ class Header extends Component {
     const back = document.querySelector(".back");
     back.addEventListener("click", () => {
       this.router.setData(datas);
+      this.router.setData(this.me);
       this.router.push("/chat");
     });
   }
@@ -31,8 +32,12 @@ class Header extends Component {
         <div class="headerBar">
             <div class="headerLeft">
                 <img class="back" src="./public/images/back.png" />
-                <span class="roomName">${this.getRoomTitle()}</span>
-                <span class="friendsNum">${this.room.friends.length}</span>
+                <span class="roomName">
+                  ${this.getRoomTitle()}
+                </span>
+                <span class="friendsNum">
+                  ${this.room.friends.length}
+                </span>
             </div>
             <div class="headerRight">
                 <img class="search" src="./public/images/search.png" />

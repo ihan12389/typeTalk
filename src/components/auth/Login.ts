@@ -1,5 +1,5 @@
 import { Component } from "../../lib/Component";
-import {auth} from "../../../Firebase";
+import { auth } from "../../../Firebase";
 
 
 class Login extends Component {
@@ -11,14 +11,19 @@ class Login extends Component {
         this.router = router;
     }
 
-    // 로그인 기능
     mount() {
-        document.getElementById("loginSubmit").onclick = function() {
+        /* Try Login */
+        document
+        .getElementById("loginSubmit")
+        .onclick = function() {
             var email = (<HTMLInputElement>document.getElementById('email')).value;
             var password = (<HTMLInputElement>document.getElementById('password')).value;
             auth.signInWithEmailAndPassword(email, password).then((user) => console.log("success")).catch(error => alert(error.message));
         }
-        document.getElementById("moveSignup").addEventListener("click", ()=>{
+        /* Move Sign up Page */
+        document
+        .getElementById("moveSignup")
+        .addEventListener("click", ()=>{
             this.router.push("/signup");
         })
     }

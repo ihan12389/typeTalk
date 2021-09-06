@@ -6,10 +6,12 @@ class Subject {
     this.app = document.getElementById("app");
   }
 
+  /* Add Observer */
   register(observer) {
     this.observers.push(observer);
   }
 
+  /* rendering my Observers */
   render() {
     this.app.innerHTML = this.observers
       .map((observer) => observer.render())
@@ -22,6 +24,7 @@ class Subject {
     });
   }
 
+  /* reset Current Observers List */
   reset() {
     this.observers = [];
   }

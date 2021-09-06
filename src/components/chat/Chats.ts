@@ -2,11 +2,9 @@ import { Component } from "../../lib/Component";
 const datas = require("../../../mockData.json");
 
 class Chats extends Component {
-  chats: any;
   router: any;
-  constructor(parent, chats, router) {
+  constructor(parent, router) {
     super(parent);
-    this.chats = chats;
     this.router = router;
   }
 

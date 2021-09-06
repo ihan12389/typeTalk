@@ -11,28 +11,30 @@ class SearchElement extends Component {
     }
 
     mount() {
-        // 친구 추가 버튼을 클릭
+        // 친구 추가 버튼 클릭
         document.getElementById(`search${this.user.uid}`).addEventListener("click", ()=> {
-            // 먼저 내 uid를 구합니다
-            // 내 자신을 친구추가할 수는 없습니다
+            // 나 자신을 친추할 수는 없습니다.
             if (this.me.uid === this.user.uid) {
                 alert("This is me....");
                 return;
             }
-
-            // // 내 doc에 접근
-            firestore.collection("users").doc(this.me.uid)
-            // // 내 doc의 firends 컬렉션에 접근
+            // 나의 friends 컬렉션 안에 친구의 정보를 추가합니다.
+            firestore
+            .collection("users")
+            .doc(this.me.uid)
             .collection("friends")
-            // // 내 friends를 추가
             .doc(this.user.uid)
-            .set(this.user).catch(error => alert(error.message))
+            .set(this.user)
+            .catch(error => alert(error.message))
             .then(()=>{
+                // 내가 가진 친구 리스트도 수정
                 var currentFriends = this.me.friends;
                 currentFriends.push(this.user.uid);
-                console.log(currentFriends);
 
-                firestore.collection("users").doc(this.me.uid).update({
+                firestore
+                .collection("users")
+                .doc(this.me.uid)
+                .update({
                     friends : currentFriends
                 })
             });
@@ -42,7 +44,11 @@ class SearchElement extends Component {
     render() {
         return `
         <div class="searchElement">
-            <img src="${this.user.profileImg ? this.user.profileImg : "./public/images/profile.jpg"}" />
+            <img src="${
+                this.user.profileImg 
+                ? this.user.profileImg 
+                : "./public/images/profile.jpg"
+            }" />
             <div class="searchText">
                 <span class="nickname">${this.user.nickname}</span>
                 <span class="email">${this.user.email}</span>

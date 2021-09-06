@@ -6,21 +6,17 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { LoginPage } from "./pages/LoginPage";
 import { auth } from "../Firebase";
 import { SignupPage } from "./pages/SignupPage";
-import {mockData} from "../mockData";
 import { firestore } from "../Firebase";
 import { MorePage } from "./pages/MorePage";
 import { ProfileUpdatePage } from "./pages/ProfileUpdatePage";
 
-const datas = require("../mockData.json");
-
-// 로그인 상태 확인
+/* Check Login */
  auth.onAuthStateChanged(async(user) => {
-  // 로그인 상태
+  /* login */
   if (user) {
     console.log("로그인 중")
     await firestore.collection("users").doc(user.uid).get().then(data => {
       if (data.exists) {
-        const a = data.data();
         const pages = [
           { page: MainPage, path: "/" },
           { page: ChatPage, path: "/chat" },
@@ -30,14 +26,11 @@ const datas = require("../mockData.json");
           { page: ProfileUpdatePage, path: "/update"}
         ];
         const router = new Router({pages: pages})
-        router.setData(a);
         router.push(pages[0].path);
       }
-      else {
-    };
     })
   }
-  // 로그아웃 상태
+  /* logout */
   else {
     console.log("로그아웃 중")
     const pages = [
@@ -45,8 +38,6 @@ const datas = require("../mockData.json");
       ,{page : SignupPage, path : "/signup"}
     ]
     const router = new Router({pages: pages})
-
-    router.setData(datas);
     router.push(pages[0].path);
   }
 });

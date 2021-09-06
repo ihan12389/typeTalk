@@ -3,17 +3,20 @@ import { Component } from "../../lib/Component";
 class Profile extends Component {
   friend: any;
   router: any;
-  constructor(parent, friend, router) {
+  me: any;
+  constructor(parent, friend, me, router) {
     super(parent);
     this.friend = friend;
+    this.me = me;
     this.router = router;
   }
 
   mount() {
+    // 프로필 화면으로 이동
     document
       .getElementById(`${this.friend.uid}`)
       .addEventListener("click", () => {
-        this.router.setData(this.friend);
+        this.router.setData([this.friend, this.me]);
         this.router.push("/profile");
       });
   }
@@ -22,8 +25,11 @@ class Profile extends Component {
     return `
         <div class="profile" id="${this.friend.uid}"">
             <div class="profileLeft">
-
-                <img src="${this.friend.profileImg==="" ? "./public/images/profile.jpg" : this.friend.profileImg}" />
+                <img src="${
+                  this.friend.profileImg==="" 
+                  ? "./public/images/profile.jpg" 
+                  : this.friend.profileImg
+                }" />
                 <span>${this.friend.nickname}</span>
             </div>
             ${

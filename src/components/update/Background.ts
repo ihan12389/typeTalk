@@ -12,15 +12,26 @@ class Background extends Component {
   }
 
   mount() {
-    document.querySelector("div > .closeProfile").addEventListener("click", (event) => {
+    // when click "Close Button"
+    document
+    .querySelector("div > .closeProfile")
+    .addEventListener("click", (event) => {
       event.stopPropagation();
       this.router.push("/");
-    });
-    document.querySelector(".myBackground").addEventListener("click", (event)=> {
+    })
+
+    // When click "Background Img"
+    document
+    .querySelector(".myBackground")
+    .addEventListener("click", (event)=> {
       event.stopPropagation();
       (<HTMLInputElement>document.querySelector(".backgroundFileInput")).click();
     })
-    document.querySelector(".backgroundFileInput").addEventListener("change", (event) => {
+
+    // When Choice background File
+    document
+    .querySelector(".backgroundFileInput")
+    .addEventListener("change", (event) => {
       const file = (<HTMLInputElement>event.target).files[0]
       var reader = new FileReader();
       var fileUrl;
@@ -34,10 +45,13 @@ class Background extends Component {
     })
   }
 
+  /* Save in Storage */
   uploadStorage = async(url) => {
     const response = await fetch(url);
     const blob = await response.blob();
+
     const task = storage.ref().child(`background${this.me.uid}`).put(blob);
+    
     const taskProgress = (snapshot) => {
       console.log(`transferred : ${snapshot.bytesTransferred}`)
     }
@@ -49,14 +63,20 @@ class Background extends Component {
     const taskError = (snapshot) => {
       console.log(snapshot);
     }
+    
     task.on("state_changed", taskProgress, taskError, taskCompleted);
   }
 
-  updateFirestore (url) {
+  /* Save in Firestore */
+  updateFirestore = (url) => {
     console.log("downloadURL?", url)
-    firestore.collection("users").doc(this.me.uid).update({
+    firestore
+    .collection("users")
+    .doc(this.me.uid)
+    .update({
       "background" : url
-    }).catch(err => console.log(err.message))
+    })
+    .catch(err => console.log(err.message))
   }
 
   render() {

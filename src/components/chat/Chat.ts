@@ -1,28 +1,43 @@
 import { Component } from "../../lib/Component";
 import {auth, firestore} from "../../../Firebase";
 
-const datas = require("../../../mockData.json");
-
 class Chat extends Component {
   chat: any;
   router: any;
   friend: any;
   room: any;
+  me: any;
 
-  constructor(parent, chat, room, friend, router) {
+  constructor(parent, chat, room, friend, me, router) {
     super(parent);
+    // 이 방의 채팅 정보
     this.chat = chat;
-    this.router = router;
-    this.friend = friend;
+    // 이 방의 룸 정보
     this.room = room;
+    // 이 방의 상대방 정보
+    this.friend = friend;
+    // 내 정보
+    this.me = me;
+    this.router = router;
   }
   
   mount() {
-    document.getElementById(`${this.chat.id}`).addEventListener("click", () => {
+    // 룸을 클릭하면 채팅 화면으로 넘어갑니다.
+    document
+    .getElementById(`${this.chat.id}`)
+    .addEventListener("click", () => {
+      // 채팅 화면으로 넘어가면서 읽지 않은 메세지 수를 0으로 초기화합니다.
       if (this.room.unreadMessage !== "0") {
-        firestore.collection("users").doc(auth.currentUser.uid).collection("rooms").doc(this.room.id).update({"unreadMessage" : 0}).catch(err=>console.log(err.message))
+        firestore
+        .collection("users")
+        .doc(auth.currentUser.uid)
+        .collection("rooms")
+        .doc(this.room.id)
+        .update({"unreadMessage" : 0})
+        .catch(err=>console.log(err.message))
       }
-      this.router.setData(this.chat);
+
+      this.router.setData([this.chat, this.me, this.friend])
       this.router.push("/room");
     });
   }
@@ -31,7 +46,11 @@ class Chat extends Component {
     return `
     <div class="chatRoom" id="${this.room.id}">
         <div class="imageContainer">
-            <img src="${this.friend.profileImg ? this.friend.profileImg : "./public/images/profile.jpg"}" />
+            <img src="${
+              this.friend.profileImg 
+              ? this.friend.profileImg 
+              : "./public/images/profile.jpg"
+            }" />
         </div>
         <div class="roomContent">
             <span class="roomTitle">${this.friend.nickname}</span>

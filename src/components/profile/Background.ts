@@ -1,18 +1,21 @@
 import { Component } from "../../lib/Component";
-const datas = require("../../../mockData.json");
 
 class Background extends Component {
-  friend: any;
+  user: any;
   router: any;
-  constructor(parent, friend, router) {
+  me: any;
+  constructor(parent, user, me, router) {
     super(parent);
-    this.friend = friend;
+    this.user = user;
+    this.me = me;
     this.router = router;
   }
 
   mount() {
-    document.querySelector(".closeProfile").addEventListener("click", () => {
-      this.router.setData(datas);
+    document
+    .querySelector(".closeProfile")
+    .addEventListener("click", () => {
+      this.router.setData(this.me);
       this.router.push("/");
     });
   }
@@ -20,7 +23,13 @@ class Background extends Component {
   render() {
     return `
     <div class="backgroundImg">
-            <img src="${this.friend.background ? this.friend.background : "./public/images/background.jpg"}" />
+            <img src="
+            ${
+              this.user.background 
+              ? this.user.background 
+              : "./public/images/background.jpg"
+            }
+            " />
             <span class="closeProfile">X</span>
     </div>
     `;

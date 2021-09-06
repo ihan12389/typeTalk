@@ -10,13 +10,14 @@ class Main extends Component {
   }
 
   mount() {
+    // 프로필 화면 이동
     document
       .getElementById(`${this.myprofile.uid}`)
       .addEventListener("click", () => {
-        this.router.setData(this.myprofile);
+        this.router.setData([this.myprofile, this.myprofile]);
         this.router.push("/profile");
       });
-
+    // 하위 컴포넌트들도 마운팅
     this.components.map((component) => component.mount());
   }
 

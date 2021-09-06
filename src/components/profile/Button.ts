@@ -15,28 +15,24 @@ class Button extends Component {
   }
 
   mount() {
-    // Match users and chatting room
     document.getElementById("dochat").addEventListener("click", (event) => {
-      // prevent double click event
       const el = document.getElementById("dochat");
       el.setAttribute("disabled", "disabled");
-      // can't chat with me
       if (this.me.uid === this.friend.uid) {
         alert("Can't chat with me...");
         return;
       }
 
-      // search room with this friend
-      firestore.collection("users").doc(this.me.uid).collection("rooms").doc(this.friend.uid).get().then(doc => {
-        if (doc.exists) {
-          // already make chatting room with this friend
-          firestore.collection("rooms").doc(doc.data().id).get().then(doc=>{
-            const room = doc.data();
-            this.router.setData(room);
-            this.router.push("/room");
-          })
-        } else {
-          // didn't make chatting room with this friend not yet
+      // 먼저 채팅방이 이미 있는지 확인
+      firestore
+      .collection("users")
+      .doc(this.me.uid)
+      .collection("rooms")
+      .where("friend.uid", "==", this.friend.uid)
+      .get()
+      .then((querySnap) => {
+        if (querySnap.docs.length == 0) {
+          //채팅방이 없다면
           const roomId = this.createRoomId();
           const room = {
             id : roomId,
@@ -50,7 +46,13 @@ class Button extends Component {
             hour : this.date.getHours(),
             minute : this.date.getMinutes(),
           }
-          firestore.collection("users").doc(this.me.uid).collection("rooms").doc(roomId).set({
+
+          firestore
+          .collection("users")
+          .doc(this.me.uid)
+          .collection("rooms")
+          .doc(roomId)
+          .set({
             "id" : roomId,
             "unreadMessage" : 0,
             "friend" : this.friend,
@@ -62,7 +64,12 @@ class Button extends Component {
             "hour": this.date.getHours(),
             "minute": this.date.getMinutes(),
           });
-          firestore.collection("users").doc(this.friend.uid).collection("rooms").doc(roomId).set({
+          firestore
+          .collection("users")
+          .doc(this.friend.uid)
+          .collection("rooms")
+          .doc(roomId)
+          .set({
             "id" : roomId,
             "unreadMessage" : 0,
             "friend" : this.me,
@@ -74,19 +81,39 @@ class Button extends Component {
             "hour": this.date.getHours(),
             "minute": this.date.getMinutes(),
           });
-          firestore.collection("rooms").doc(roomId).set(room);
-          this.router.setData(room);
-          this.router.push("/room");
+
+          firestore
+          .collection("rooms")
+          .doc(roomId)
+          .set(room)
+          .then(()=>{
+            this.router.setData([room, this.me, this.friend])
+            this.router.push("/room")
+          });
+        } else {
+          // 채팅방이 있다면
+          firestore
+          .collection("rooms")
+          .doc(querySnap.docs[0].data().id)
+          .get()
+          .then((doc) => {
+            const room = doc.data()
+            this.router.setData([room, this.me, this.friend])
+            this.router.push("/room")
+          })
         }
       })
     })
-    document.querySelector(".update").addEventListener("click", () => {
+    // 업데이트 화면으로 이동
+    document
+    .querySelector(".update")
+    .addEventListener("click", () => {
       this.router.setData(this.me);
       this.router.push("/update");
     })
   }
 
-  // make Room's uid
+  // 랜덤한 Room의 id를 생성하는 함수
   createRoomId = () => {
     function s4() {
       return Math.floor((1+Math.random())*0x10000).toString(16).substring(1);

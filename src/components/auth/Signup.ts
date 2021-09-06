@@ -10,12 +10,17 @@ class Signup extends Component {
     }
 
     mount() {
-        document.getElementById("signupSubmit").onclick = function() {
+        /* Try Sign up */
+        document
+        .getElementById("signupSubmit")
+        .onclick = function() {
             const nickname = (<HTMLInputElement>document.getElementById("nickname")).value;
             const email = (<HTMLInputElement>document.getElementById("email")).value;
             const password = (<HTMLInputElement>document.getElementById("password")).value;
 
-            auth.createUserWithEmailAndPassword(email, password).then((user) => {
+            auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((user) => {
                 const userInform = {
                     nickname : nickname,
                     email : email,
@@ -25,10 +30,18 @@ class Signup extends Component {
                     uid : user.user.uid,
                     friends:[]
                 }
-                firestore.collection("users").doc(user.user.uid).set(userInform).catch(error => error); 
-            }).catch(error => alert(error.message));
+                firestore
+                .collection("users")
+                .doc(user.user.uid)
+                .set(userInform)
+                .catch(error => error); 
+            })
+            .catch(error => alert(error.message));
         }
-        document.getElementById("moveLogin").addEventListener("click", ()=>{
+        /* Move Login Page */
+        document
+        .getElementById("moveLogin")
+        .addEventListener("click", ()=>{
             this.router.push("/login")
         })
     }

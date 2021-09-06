@@ -11,6 +11,7 @@ class Content extends Component {
   }
 
   mount() {
+    // 스크롤이 자동으로 끝으로 가있도록 합니다.
     var content = document.querySelector(".roomContent");
     content.scrollTop = content.scrollHeight;
 
@@ -26,6 +27,7 @@ class Content extends Component {
     return `
     <div class="roomContent">
     ${
+      // 채팅 말풍선 상태 설정
       this.components.map(component => {
         if (idx == 0) {
           this.stateArray[0] = "top";
@@ -58,7 +60,9 @@ class Content extends Component {
               idx++;
             }).join("")
           }
-          ${this.components.map((component) => {
+          ${
+            // 채팅방 말풍성 렌더링
+            this.components.map((component) => {
             if (this.stateArray[idx2] == "top") {
               component.setState("top")
               this.returnString += component.render()

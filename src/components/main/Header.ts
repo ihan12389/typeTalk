@@ -3,9 +3,11 @@ import { Component } from "../../lib/Component";
 class Header extends Component {
   len: any;
   router: any;
-  constructor(parent, len, router) {
+  me: any;
+  constructor(parent, len, me, router) {
     super(parent);
     this.len = len;
+    this.me = me;
     this.router = router;
   }
 
@@ -13,9 +15,12 @@ class Header extends Component {
     const home = document.querySelector(".home");
     const chat = document.querySelector(".chat");
     const more = document.querySelector(".more");
+    
     home.classList.add("focus");
+    
     chat.addEventListener("click", () => {
       chat.setAttribute("disabled", "disabled");
+      this.router.setData(this.me)
       this.router.push("/chat");
       home.classList.remove("focus");
     });
