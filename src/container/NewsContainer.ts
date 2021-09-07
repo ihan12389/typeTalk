@@ -2,9 +2,8 @@ import { Component } from "../lib/Component";
 
 class NewsContainer extends Component {
   articles: any;
-  constructor(parent, articles) {
+  constructor(parent) {
     super(parent);
-    this.articles = articles;
   }
 
   render() {

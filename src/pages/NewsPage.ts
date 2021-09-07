@@ -1,44 +1,35 @@
 import { Page } from "../lib/Page";
 import { NewsContainer } from "../container/NewsContainer";
-import { Container } from "../components/profile/Container";
 import { Header } from "../components/news/Header";
 import { Search } from "../components/news/Search";
 import { Articles } from "../components/news/Articles";
 import { Article } from "../components/news/Article";
 
+var axios = require("axios").default;
+
 class NewsPage extends Page {
   constructor({ router, datas }) {
     super(router);
 
-    var url =
-      "https://newsapi.org/v2/top-headlines?" +
-      "country=kr&" +
-      "from=2021-09-07&" +
-      "sortBy=popularity&" +
-      "apiKey=9a602978a699466fba910d21cbd52c9d";
-
-    var req = new Request(url);
-
-    fetch(req)
-      .then(function (res) {
-        // 원하는 기사의 리스트를 받아옵니다.
-        return res.json();
-      })
-      .then((news) => {
+    this.useAnother()
+      .then((books) => {
+        console.log(books);
         // 총 20개의 리스트를 받아옵니다.
-        console.log(news);
+        console.log(books);
         // 출력해보도록합시다.
-        const container = new NewsContainer(null, news.articles);
+        const container = new NewsContainer(null);
         new Header(container, router);
         new Search(container);
-        const articles = new Articles(container, news.articles);
+        const articles = new Articles(container, books);
 
-        news.articles.map((article) => {
-          var arr = article.title.split(" - ");
-          var title = arr[0];
-          var from = arr[arr.length - 1];
-
-          new Article(articles, article.url, article.urlToImage, title, from);
+        books.map((book) => {
+          new Article(
+            articles,
+            book.link,
+            book.image,
+            book.title,
+            book.publisher
+          );
         });
       })
       .then(() => {
@@ -47,6 +38,29 @@ class NewsPage extends Page {
       })
       .catch((err) => console.log(err));
   }
+
+  // 다른 API를 사용하여 뉴스 정보를 받아옵니다.
+  useAnother = async () => {
+    console.log("");
+    var search = "japan";
+    try {
+      if (search == "") {
+        console.log("뭐라도 입력해요");
+      } else {
+        const {
+          data: { items },
+        } = await axios.get("http://localhost:3001/book", {
+          params: {
+            query: search,
+          },
+        });
+        console.log(items);
+        return items;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export { NewsPage };

@@ -30,7 +30,7 @@ class Header extends Component {
     });
     home.addEventListener("click", () => {
       home.setAttribute("disabled", "disabled");
-      this.router.push("/home");
+      this.router.push("/");
       news.classList.remove("focus");
     });
   }

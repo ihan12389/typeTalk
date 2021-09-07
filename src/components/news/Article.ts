@@ -18,9 +18,7 @@ class Article extends Component {
     <div class="newsBox">
         <a href="${this.url}">
             <div class="newsWith">
-                <img class="newsImg" src="
-                ${this.img ? this.img : "./public/images/news.jpg"}
-                " />
+                <img class="newsImg" src="${this.img}" onError="this.src='./public/images/book.jpg';" alt="..." />
                 <span class="newsTitle">${this.title}</span>
             </div>
             <h3 class="newsFrom">${this.from}</h3>
