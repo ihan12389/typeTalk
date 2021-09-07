@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +15,11 @@
 * input {
   border: none;
   outline: none;
+}
+
+* a {
+  color: inherit;
+  text-decoration: none;
 }
 
 html,
@@ -1254,5 +1260,88 @@ body {
   margin-top: 5px;
   width: 30px;
   height: 30px;
+}
+
+/* News Style */
+.newsContainerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.newsContainerWrapper .newsContainer {
+  border: 1px solid #4a3134;
+  background: pink;
+  overflow: auto;
+  background-color: #fefefe;
+  width: 500px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.newsContainerWrapper .newsContainer .space {
+  border: 10px solid #f2f2f2;
+}
+
+.newsContainerWrapper .newsContainer .articles {
+  padding: 20px;
+}
+
+.newsContainerWrapper .newsContainer .articles .newsLabel {
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.newsContainerWrapper .newsContainer .articles .newsGrid {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[10];
+      grid-template-rows: repeat(10, 1fr);
+  gap: 7px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.newsContainerWrapper .newsContainer .articles .newsGrid .newsBox a {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1.5px solid #dddddd;
+}
+
+.newsContainerWrapper .newsContainer .articles .newsGrid .newsBox a img {
+  aspect-ratio: 1/0.7;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.newsContainerWrapper .newsContainer .articles .newsGrid .newsBox a .newsTitle {
+  font-size: 15px;
 }
 /*# sourceMappingURL=style.css.map */

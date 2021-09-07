@@ -1,4 +1,4 @@
-import {Input} from "../components/room/Input";
+import { Input } from "../components/room/Input";
 import { Component } from "../lib/Component";
 
 const datas = require("../../mockData.json");

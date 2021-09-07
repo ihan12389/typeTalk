@@ -4,10 +4,8 @@ class Header extends Component {
   len: any;
   router: any;
   me: any;
-  constructor(parent, len, me, router) {
+  constructor(parent, router) {
     super(parent);
-    this.len = len;
-    this.me = me;
     this.router = router;
   }
 
@@ -17,23 +15,23 @@ class Header extends Component {
     const news = document.querySelector(".news");
     const more = document.querySelector(".more");
 
-    home.classList.add("focus");
+    news.classList.add("focus");
 
     chat.addEventListener("click", () => {
       chat.setAttribute("disabled", "disabled");
       this.router.setData(this.me);
       this.router.push("/chat");
-      home.classList.remove("focus");
-    });
-    news.addEventListener("click", () => {
-      news.setAttribute("disabled", "disabled");
-      this.router.push("/news");
-      home.classList.remove("focus");
+      news.classList.remove("focus");
     });
     more.addEventListener("click", () => {
       more.setAttribute("disabled", "disabled");
       this.router.push("/more");
-      home.classList.remove("focus");
+      news.classList.remove("focus");
+    });
+    home.addEventListener("click", () => {
+      home.setAttribute("disabled", "disabled");
+      this.router.push("/home");
+      news.classList.remove("focus");
     });
   }
 
@@ -41,7 +39,7 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>Friends ${this.len}</span>
+                <span>News</span>
                 <div class="headerButtonContainer">
                     <button type="button"><img src="./public/images/add.png" /></button>
                     <button type="button"><img src="./public/images/more_c.png" /></button>

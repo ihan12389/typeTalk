@@ -1,19 +1,21 @@
 import { Component } from "../lib/Component";
 
 class SignupContainer extends Component {
-    constructor() {
-        super(null);
-    }
+  constructor() {
+    super(null);
+  }
 
-    render() {
-        return `
+  render() {
+    return `
         <div class="loginContainerWrapper">
             <div class="loginContainer">
-                ${this.components.map(component => component.render()).join('')}
+                ${this.components
+                  .map((component) => component.render())
+                  .join("")}
             </div>
         </div>
-        `
-    }
+        `;
+  }
 }
 
-export{SignupContainer}
+export { SignupContainer };

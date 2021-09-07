@@ -1,19 +1,21 @@
-import {Component} from "../lib/Component";
+import { Component } from "../lib/Component";
 
 class MainContainer extends Component {
-    constructor() {
-        super(null);
-    }
+  constructor() {
+    super(null);
+  }
 
-    render() {
-        return `
+  render() {
+    return `
         <div class="mainContainerWrapper">
             <div class="mainContainer">
-            ${this.components.map(component => component.render()).join('')}
+                ${this.components
+                  .map((component) => component.render())
+                  .join("")}
             </div>
         </div>
-        `
-    }
+        `;
+  }
 }
 
-export{MainContainer};
+export { MainContainer };

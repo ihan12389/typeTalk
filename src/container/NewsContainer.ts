@@ -1,14 +1,16 @@
 import { Component } from "../lib/Component";
 
-class ChatContainer extends Component {
-  constructor(parent) {
+class NewsContainer extends Component {
+  articles: any;
+  constructor(parent, articles) {
     super(parent);
+    this.articles = articles;
   }
 
   render() {
     return `
-        <div class="chatContainerWrapper">
-            <div class="chatContainer">
+        <div class="newsContainerWrapper">
+            <div class="newsContainer">
                 ${this.components
                   .map((component) => component.render())
                   .join("")}
@@ -18,4 +20,4 @@ class ChatContainer extends Component {
   }
 }
 
-export { ChatContainer };
+export { NewsContainer };

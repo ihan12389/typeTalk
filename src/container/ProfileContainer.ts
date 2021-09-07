@@ -13,9 +13,7 @@ class ProfileContainer extends Component {
     return `
         <div class="profileContainerWrapper">
             <div class="profileContainer">
-            ${this.components
-                .map((component) => component.render())
-                .join("")}
+              ${this.components.map((component) => component.render()).join("")}
             </div>
         </div>
     `;

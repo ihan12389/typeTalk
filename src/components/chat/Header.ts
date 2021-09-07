@@ -10,6 +10,7 @@ class Header extends Component {
   mount() {
     const home = document.querySelector(".home");
     const chat = document.querySelector(".chat");
+    const news = document.querySelector(".news");
     const more = document.querySelector(".more");
 
     chat.classList.add("focus");
@@ -19,12 +20,16 @@ class Header extends Component {
       this.router.push("/");
       chat.classList.remove("focus");
     });
-    
-    more.addEventListener("click", ()=> {
+    news.addEventListener("click", () => {
+      news.setAttribute("disabled", "disabled");
+      this.router.push("/news");
+      chat.classList.remove("focus");
+    });
+    more.addEventListener("click", () => {
       more.setAttribute("disabled", "disabled");
       this.router.push("/more");
       chat.classList.remove("focus");
-    })
+    });
   }
 
   render() {

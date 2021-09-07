@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +12,10 @@
   input {
     border: none;
     outline: none;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -171,44 +177,44 @@ body {
     }
   }
   .searchBox {
-    display : none;
+    display: none;
     background-color: rgba(151, 151, 151, 0.1);
-    width : 100%;
-    min-height : 60px;
-    padding : 10px;
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
     flex-direction: column;
-    gap : 4px;
+    gap: 4px;
     .searchElement {
-      width : 100%;
-      height : 40px;
-      display : flex;
+      width: 100%;
+      height: 40px;
+      display: flex;
       align-items: center;
       img {
-        height : 100%;
+        height: 100%;
         border-radius: 50%;
       }
       .searchText {
-        flex : 1;
-        display : flex;
+        flex: 1;
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left : 15px;
+        padding-left: 15px;
         .nickname {
           font-size: 18px;
           font-weight: bold;
         }
         .email {
           font-size: 15px;
-          color :rgba(0, 0, 0, 0.3);
+          color: rgba(0, 0, 0, 0.3);
         }
       }
       button {
         font-weight: bold;
-        border : 2px solid #4a3134;
-        color : #4a3134;
-        padding : 5px;
+        border: 2px solid #4a3134;
+        color: #4a3134;
+        padding: 5px;
         border-radius: 15px;
-        cursor : pointer;
+        cursor: pointer;
       }
     }
   }
@@ -373,7 +379,7 @@ body {
           overflow: hidden;
           margin-left: 10px;
           img {
-            width : 100%;
+            width: 100%;
             height: 100%;
           }
         }
@@ -485,7 +491,7 @@ body {
       }
     }
     .roomContent {
-      flex : 1;
+      flex: 1;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -591,20 +597,20 @@ body {
       .one {
       }
       .top {
-        padding-bottom : 0px;
-        margin-bottom : 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
         .time {
-          display : none;
+          display: none;
         }
       }
       .last {
-        padding-top:0px;
-        margin-top:0px;
+        padding-top: 0px;
+        margin-top: 0px;
         img {
           visibility: hidden;
         }
         .name {
-          display : none;
+          display: none;
         }
         .content {
           .speechBuble {
@@ -615,18 +621,18 @@ body {
         }
       }
       .middle {
-        margin-top : 0;
-        margin-bottom : 0;
-        padding-top : 0;
-        padding-bottom : 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
         img {
           visibility: hidden;
         }
         .time {
-          display : none;
+          display: none;
         }
         .name {
-          display : none;
+          display: none;
         }
         .content {
           .speechBuble {
@@ -638,23 +644,23 @@ body {
       }
     }
     .chatInputWrap {
-      height : 60px;
+      height: 60px;
       .chatForm {
-        display : flex;
+        display: flex;
         background: pink;
-        height : 100%;
+        height: 100%;
         input {
-          height : 100%;
-          flex : 1;
-          padding-left : 5px;
+          height: 100%;
+          flex: 1;
+          padding-left: 5px;
         }
         button {
-          height : 100%;
-          background : #ffee40;
-          width : 70px;
-          padding : 5px;
-          border : 1px solid rgba(0,0,0,0.1);
-          color : rgba(71, 71, 71, 0.6);
+          height: 100%;
+          background: #ffee40;
+          width: 70px;
+          padding: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          color: rgba(71, 71, 71, 0.6);
           font-size: 15px;
         }
       }
@@ -676,13 +682,13 @@ body {
     flex-direction: column;
     .backgroundImg {
       height: 600px;
-      min-height : 600px;
-      max-height : 600px;
+      min-height: 600px;
+      max-height: 600px;
       background-color: #cbab18;
       img {
         height: 600px;
-        min-height : 600px;
-        max-height : 600px;
+        min-height: 600px;
+        max-height: 600px;
         height: 100%;
         width: 100%;
         z-index: 1;
@@ -693,7 +699,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height : 100%;
+      height: 100%;
       .profile {
         display: flex;
         flex-direction: column;
@@ -705,15 +711,15 @@ body {
           margin-top: 20px;
           input {
             font-size: 22px;
-            font-weight : bold;
-            pointer-events:none;
+            font-weight: bold;
+            pointer-events: none;
           }
           img {
-            height : 18px;
-            width : 18px;
-            margin-left : 5px;
-            margin-right : -23px;
-            cursor : pointer;
+            height: 18px;
+            width: 18px;
+            margin-left: 5px;
+            margin-right: -23px;
+            cursor: pointer;
           }
         }
         .email {
@@ -732,11 +738,11 @@ body {
           border-radius: 65px;
         }
         .message {
-          max-height : 90px;
+          max-height: 90px;
           margin-top: 15px;
           font-size: 15px;
-          color :rgba(0, 0, 0, 0.5);
-          width : 80%;
+          color: rgba(0, 0, 0, 0.5);
+          width: 80%;
           overflow: hidden;
           text-overflow: ellipsis;
           word-break: break-all;
@@ -746,19 +752,19 @@ body {
           line-height: 1.2em;
           height: 3.6em;
           text-align: center;
-          img{
-            width : 20px;
-            height : 20px;
-            cursor : pointer;
+          img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
           }
         }
       }
       .container {
-        display : flex;
+        display: flex;
         justify-content: flex-end;
-        padding : 0;
-        margin : 0;
-        padding-bottom : 30px;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 30px;
         .button {
           display: flex;
           align-items: flex-end;
@@ -806,16 +812,16 @@ body {
 }
 
 .logout {
-  display : flex;
-  width : 100%;
+  display: flex;
+  width: 100%;
   justify-content: center;
   margin-top: 300px;
   .logoutButton {
     background-color: #a0b7d6;
-    color : white;
+    color: white;
     font-size: 30px;
     font-weight: bold;
-    padding : 15px 25px;
+    padding: 15px 25px;
     border-radius: 40px;
     cursor: pointer;
   }
@@ -823,36 +829,94 @@ body {
 
 /* update Style */
 .backgroundFileInput {
-  display : none;
+  display: none;
 }
 .profileFileInput {
-  display : none;
+  display: none;
 }
 
 .myBackground {
-  cursor : pointer;
+  cursor: pointer;
 }
 
 .myThumbnail {
-  cursor : pointer;
+  cursor: pointer;
 }
 
 .messageForm {
-  display : flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width : 500px;
-  margin-top : 20px;
+  max-width: 500px;
+  margin-top: 20px;
   textarea {
-    width : 400px;
-    margin : 0;
-    padding : 0;
-    resize : none;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    resize: none;
   }
   img {
-    margin-top : 5px;
-    width : 30px;
-    height : 30px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* News Style */
+.newsContainerWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  .newsContainer {
+    border: 1px solid #4a3134;
+    background: pink;
+    overflow: auto;
+    background-color: #fefefe;
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .space {
+      border: 10px solid #f2f2f2;
+    }
+    .articles {
+      padding: 20px;
+      .newsLabel {
+        font-weight: bolder;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .newsGrid {
+        margin-top: 20px;
+        padding-bottom: 10px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 7px;
+        font-family: "Noto Sans KR", sans-serif;
+        .newsBox {
+          a {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1.5px solid #dddddd;
+            img {
+              aspect-ratio: 1/0.7;
+              width: 100%;
+              object-fit: cover;
+              // height: 60px;
+            }
+            .newsTitle {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
   }
 }

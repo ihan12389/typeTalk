@@ -9,35 +9,40 @@ import { SignupPage } from "./pages/SignupPage";
 import { firestore } from "../Firebase";
 import { MorePage } from "./pages/MorePage";
 import { ProfileUpdatePage } from "./pages/ProfileUpdatePage";
+import { NewsPage } from "./pages/NewsPage";
 
 /* Check Login */
- auth.onAuthStateChanged(async(user) => {
+auth.onAuthStateChanged(async (user) => {
   /* login */
   if (user) {
-    console.log("로그인 중")
-    await firestore.collection("users").doc(user.uid).get().then(data => {
-      if (data.exists) {
-        const pages = [
-          { page: MainPage, path: "/" },
-          { page: ChatPage, path: "/chat" },
-          { page: RoomPage, path: "/room" },
-          { page: ProfilePage, path: "/profile" },
-          { page: MorePage, path: "/more"},
-          { page: ProfileUpdatePage, path: "/update"}
-        ];
-        const router = new Router({pages: pages})
-        router.push(pages[0].path);
-      }
-    })
-  }
-  /* logout */
-  else {
-    console.log("로그아웃 중")
+    console.log("로그인 중");
+    await firestore
+      .collection("users")
+      .doc(user.uid)
+      .get()
+      .then((data) => {
+        if (data.exists) {
+          const pages = [
+            { page: MainPage, path: "/" },
+            { page: ChatPage, path: "/chat" },
+            { page: RoomPage, path: "/room" },
+            { page: ProfilePage, path: "/profile" },
+            { page: MorePage, path: "/more" },
+            { page: ProfileUpdatePage, path: "/update" },
+            { page: NewsPage, path: "/news" },
+          ];
+          const router = new Router({ pages: pages });
+          router.push(pages[0].path);
+        }
+      });
+  } else {
+    /* logout */
+    console.log("로그아웃 중");
     const pages = [
-      { page : LoginPage, path : "/login"}
-      ,{page : SignupPage, path : "/signup"}
-    ]
-    const router = new Router({pages: pages})
+      { page: LoginPage, path: "/login" },
+      { page: SignupPage, path: "/signup" },
+    ];
+    const router = new Router({ pages: pages });
     router.push(pages[0].path);
   }
 });
