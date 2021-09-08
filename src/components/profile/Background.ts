@@ -12,9 +12,7 @@ class Background extends Component {
   }
 
   mount() {
-    document
-    .querySelector(".closeProfile")
-    .addEventListener("click", () => {
+    document.querySelector(".closeProfile").addEventListener("click", () => {
       this.router.setData(this.me);
       this.router.push("/");
     });
@@ -23,13 +21,7 @@ class Background extends Component {
   render() {
     return `
     <div class="backgroundImg">
-            <img src="
-            ${
-              this.user.background 
-              ? this.user.background 
-              : "./public/images/background.jpg"
-            }
-            " />
+            <img class="newsImg" src="${this.user.background}" onError="this.src='./public/images/background.jpg';" alt="..." />
             <span class="closeProfile">X</span>
     </div>
     `;

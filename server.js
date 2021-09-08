@@ -21,7 +21,7 @@ app.use("/book", (req, res) => {
     .get("https://openapi.naver.com/v1/search/book.json", {
       params: {
         query: word,
-        display: 20,
+        display: 6,
       },
       headers: {
         "X-Naver-Client-Id": ID_KEY,
@@ -32,7 +32,31 @@ app.use("/book", (req, res) => {
     .then(function (response) {
       const items = response.data.items;
       // 서버 밖으로 내보냅니다.
-      res.send({ items: items });
+      res.send({ books: items });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+});
+
+app.use("/movie", (req, res) => {
+  const word = req.query.query;
+  axios
+    .get("https://openapi.naver.com/v1/search/movie.json", {
+      params: {
+        query: word,
+        display: 6,
+      },
+      headers: {
+        "X-Naver-Client-Id": ID_KEY,
+        "X-Naver-Client-Secret": SECRET_KEY,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(function (response) {
+      const items = response.data.items;
+      // 서버 밖으로 내보냅니다.
+      res.send({ movies: items });
     })
     .catch(function (error) {
       console.log(error);

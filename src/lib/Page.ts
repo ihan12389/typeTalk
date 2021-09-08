@@ -14,6 +14,9 @@ class Page {
   mount() {
     subject.mount();
   }
+  reset() {
+    subject.reset();
+  }
 }
 
 export { Page };

@@ -26,10 +26,8 @@ class Profile extends Component {
         <div class="profile" id="${this.friend.uid}"">
             <div class="profileLeft">
                 <img src="${
-                  this.friend.profileImg==="" 
-                  ? "./public/images/profile.jpg" 
-                  : this.friend.profileImg
-                }" />
+                  this.friend.profileImg
+                }" onError="this.src='./public/images/profile.jpg';" alt="..." />
                 <span>${this.friend.nickname}</span>
             </div>
             ${

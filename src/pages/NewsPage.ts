@@ -11,24 +11,27 @@ class NewsPage extends Page {
   constructor({ router, datas }) {
     super(router);
 
-    this.useAnother()
-      .then((books) => {
-        console.log(books);
-        // 총 20개의 리스트를 받아옵니다.
-        console.log(books);
-        // 출력해보도록합시다.
+    this.useAnother("japan")
+      .then((list) => {
+        console.log(list);
         const container = new NewsContainer(null);
         new Header(container, router);
-        new Search(container);
-        const articles = new Articles(container, books);
+        new Search(container, this.searchContents);
+        const books = new Articles(container, "독서");
 
-        books.map((book) => {
+        list[0].map((book) => {
+          new Article(books, book.link, book.image, book.title, book.publisher);
+        });
+
+        const movies = new Articles(container, "영화");
+
+        list[1].map((movie) => {
           new Article(
-            articles,
-            book.link,
-            book.image,
-            book.title,
-            book.publisher
+            movies,
+            movie.link,
+            movie.image,
+            movie.title,
+            movie.director
           );
         });
       })
@@ -40,26 +43,67 @@ class NewsPage extends Page {
   }
 
   // 다른 API를 사용하여 뉴스 정보를 받아옵니다.
-  useAnother = async () => {
+  useAnother = async (search) => {
     console.log("");
-    var search = "japan";
     try {
       if (search == "") {
         console.log("뭐라도 입력해요");
       } else {
         const {
-          data: { items },
+          data: { books },
         } = await axios.get("http://localhost:3001/book", {
           params: {
             query: search,
           },
         });
-        console.log(items);
-        return items;
+
+        const {
+          data: { movies },
+        } = await axios.get("http://localhost:3001/movie", {
+          params: {
+            query: search,
+          },
+        });
+
+        console.log(books, movies);
+        return [books, movies];
       }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  searchContents = (search) => {
+    this.reset();
+    this.useAnother(search)
+      .then((list) => {
+        console.log(list);
+        const container = new NewsContainer(null);
+        new Header(container, this.router);
+        new Search(container, this.searchContents);
+        const books = new Articles(container, "독서");
+
+        list[0].map((book) => {
+          new Article(books, book.link, book.image, book.title, book.publisher);
+        });
+
+        const movies = new Articles(container, "영화");
+
+        list[1].map((movie) => {
+          new Article(
+            movies,
+            movie.link,
+            movie.image,
+            movie.title,
+            movie.director
+          );
+        });
+      })
+      .then(() => {
+        this.render();
+        this.mount();
+      })
+      .catch((err) => console.log(err));
   };
 }
 

@@ -10,13 +10,9 @@ class Profile extends Component {
   render() {
     return `
     <div class="profile">
-        <img src="
-        ${
-          this.user.profileImg 
-          ? this.user.profileImg 
-          : "./public/images/profile.jpg"
-        }
-        " class="thumbnail" />
+        <img class="thumbnail" src="${
+          this.user.profileImg
+        }" onError="this.src='./public/images/profile.jpg';" alt="..." />
         <span class="name">
           ${this.user.nickname}
         </span>
@@ -26,11 +22,7 @@ class Profile extends Component {
           </span>
         </div>
         <span class="message">
-        ${
-          this.user.profileMessage !== "" 
-          ? this.user.profileMessage 
-          : ""
-        }
+        ${this.user.profileMessage !== "" ? this.user.profileMessage : ""}
         </span>
     </div>
     `;

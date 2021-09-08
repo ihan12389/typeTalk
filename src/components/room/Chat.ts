@@ -3,7 +3,7 @@ import { Component } from "../../lib/Component";
 class Chat extends Component {
   chat: any;
   me: any;
-  state : string;
+  state: string;
   friend: any;
   constructor(parent, chat, me, friend) {
     super(parent);
@@ -18,19 +18,17 @@ class Chat extends Component {
 
   render() {
     return `
-    ${this.chat.uid === this.me.uid 
-    ? 
-    `
+    ${
+      this.chat.uid === this.me.uid
+        ? `
     <div class="myChat ${this.state}">
       <span class="time">
-      ${
-        parseInt(this.chat.hour) < 10 
-        ? `0${this.chat.hour}` 
-        : this.chat.hour}
+      ${parseInt(this.chat.hour) < 10 ? `0${this.chat.hour}` : this.chat.hour}
         :
-        ${parseInt(this.chat.minute) < 10 
-          ? `0${this.chat.minute}` 
-          : this.chat.minute
+        ${
+          parseInt(this.chat.minute) < 10
+            ? `0${this.chat.minute}`
+            : this.chat.minute
         }
         </span>
       <div class="content">
@@ -43,25 +41,16 @@ class Chat extends Component {
           </span>
         </div>
       </div>
-      <img src="
-      ${
-        this.me.profileImg 
-        ? this.me.profileImg 
-        : "./public/images/profile.jpg"
-      }
-      " />
+      <img src="${
+        this.me.profileImg
+      }" onError="this.src='./public/images/profile.jpg';" alt="..." />
     </div>
-    ` 
-    : 
     `
+        : `
     <div class="chat ${this.state}">
-        <img src="
-        ${
-          this.friend.profileImg 
-          ? this.friend.profileImg 
-          : "./public/images/profile.jpg"
-        }
-        " />
+        <img src="${
+          this.friend.profileImg
+        }" onError="this.src='./public/images/profile.jpg';" alt="..." />
             <div class="content">
                 <span class="name">
                   ${this.friend.nickname}
@@ -73,20 +62,17 @@ class Chat extends Component {
                 </div>
             </div>
         <span class="time">
-        ${
-          parseInt(this.chat.hour) < 10 
-          ? `0${this.chat.hour}` 
-          : this.chat.hour
-        }
+        ${parseInt(this.chat.hour) < 10 ? `0${this.chat.hour}` : this.chat.hour}
         :
         ${
-          parseInt(this.chat.minute) < 10 
-          ? `0${this.chat.minute}` 
-          : this.chat.minute
+          parseInt(this.chat.minute) < 10
+            ? `0${this.chat.minute}`
+            : this.chat.minute
         }
         </span>
     </div>
-    `}
+    `
+    }
     `;
   }
 }

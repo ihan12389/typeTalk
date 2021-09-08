@@ -3,17 +3,32 @@ import { firestore } from "../../../Firebase";
 
 class Search extends Component {
   me: any;
-  constructor(parent) {
+  searchContents: any;
+  constructor(parent, searchContents) {
     super(parent);
+    this.searchContents = searchContents;
+  }
+
+  mount() {
+    document
+      .getElementById("newsSearch")
+      .addEventListener("keydown", (event) => {
+        if (event.key == "Enter") {
+          console.log(event);
+          const search = (<HTMLInputElement>event.target).value;
+          this.searchContents(search);
+        }
+      });
   }
 
   render() {
     return `
         <div class="search">
-            <input id="search" type="text" placeholder="🔍 Search Nickname & Email" value="" />
+            <input id="newsSearch" type="text" placeholder="🔍 Search Nickname & Email" value="" />
             <div class="searchBox">
             </div>
         </div>
+        <div class="space"> </div>
         `;
   }
 }

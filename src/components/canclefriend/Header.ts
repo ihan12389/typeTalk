@@ -1,17 +1,14 @@
-import e from "express";
 import { Component } from "../../lib/Component";
 
 class Header extends Component {
   len: any;
   router: any;
   me: any;
-  friends: any;
-  constructor(parent, len, me, friends, router) {
+  constructor(parent, len, me, router) {
     super(parent);
     this.len = len;
     this.me = me;
     this.router = router;
-    this.friends = friends;
   }
 
   mount() {
@@ -38,21 +35,6 @@ class Header extends Component {
       this.router.push("/more");
       home.classList.remove("focus");
     });
-
-    document.getElementById("mainDropButton").addEventListener("click", () => {
-      const drop = document.getElementById("mainDropdown");
-      console.log(drop);
-      if (drop.style.display == "none") {
-        drop.style.display = "inline-block";
-      } else {
-        drop.style.display = "none";
-      }
-    });
-
-    document.getElementById("dropLi").addEventListener("click", () => {
-      this.router.setData([this.friends, this.me]);
-      this.router.push("/canclefriend");
-    });
   }
 
   render() {
@@ -62,12 +44,7 @@ class Header extends Component {
                 <span>Friends ${this.len}</span>
                 <div class="headerButtonContainer">
                     <button type="button"><img src="./public/images/add.png" /></button>
-                    <div class="dropbox">
-                      <button type="button" id="mainDropButton"><img src="./public/images/more_c.png" /></button>
-                      <div style="display:none;" class="dropdown" id="mainDropdown">
-                        <span id="dropLi">Delete Friends</span>
-                      </div>
-                    </div>
+                    <button type="button"><img src="./public/images/more_c.png" /></button>
                 </div>
             </div>
             <div class="headerTab">

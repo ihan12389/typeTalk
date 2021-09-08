@@ -10,6 +10,7 @@ import { firestore } from "../Firebase";
 import { MorePage } from "./pages/MorePage";
 import { ProfileUpdatePage } from "./pages/ProfileUpdatePage";
 import { NewsPage } from "./pages/NewsPage";
+import { CancleFriendPage } from "./pages/CancleFriendPage";
 
 /* Check Login */
 auth.onAuthStateChanged(async (user) => {
@@ -30,6 +31,7 @@ auth.onAuthStateChanged(async (user) => {
             { page: MorePage, path: "/more" },
             { page: ProfileUpdatePage, path: "/update" },
             { page: NewsPage, path: "/news" },
+            { page: CancleFriendPage, path: "/canclefriend" },
           ];
           const router = new Router({ pages: pages });
           router.push(pages[0].path);

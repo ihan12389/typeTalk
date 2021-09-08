@@ -29,7 +29,9 @@ class Main extends Component {
             </div>
             <div class="myProfile" id="${this.myprofile.uid}">
                 <div class="profileLeft">
-                    <img src="${this.myprofile.profileImg==="" ? "./public/images/profile.jpg" : this.myprofile.profileImg}" />
+                    <img src="${
+                      this.myprofile.profileImg
+                    }" onError="this.src='./public/images/profile.jpg';" alt="..." />
                     <span>${this.myprofile.nickname}</span>
                 </div>
                 ${

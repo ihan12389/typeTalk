@@ -2,16 +2,16 @@ import { Component } from "../../lib/Component";
 
 class Articles extends Component {
   articles: any;
-  constructor(parent, articles) {
+  title: String;
+  constructor(parent, title) {
     super(parent);
-    this.articles = articles;
+    this.title = title;
   }
 
   render() {
     return `
-      <div class="space"> </div>
         <div class="articles">
-            <span class="newsLabel">채널 소식</span>
+            <h4 class="newsLabel">${this.title} 채널 소식</h4>
             <div class="newsGrid">
             ${this.components.map((component) => component.render()).join("")}
         </div>
