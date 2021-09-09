@@ -51,7 +51,7 @@ class NewsPage extends Page {
       } else {
         const {
           data: { books },
-        } = await axios.get("http://localhost:3001/book", {
+        } = await axios.get("https://typetalkserver.herokuapp.com/book", {
           params: {
             query: search,
           },
@@ -59,7 +59,7 @@ class NewsPage extends Page {
 
         const {
           data: { movies },
-        } = await axios.get("http://localhost:3001/movie", {
+        } = await axios.get("https://typetalkserver.herokuapp.com/movie", {
           params: {
             query: search,
           },
