@@ -11,6 +11,7 @@ import { MorePage } from "./pages/MorePage";
 import { ProfileUpdatePage } from "./pages/ProfileUpdatePage";
 import { NewsPage } from "./pages/NewsPage";
 import { CancleFriendPage } from "./pages/CancleFriendPage";
+import { CancleChatPage } from "./pages/CancleChatPage";
 
 /* Check Login */
 auth.onAuthStateChanged(async (user) => {
@@ -32,6 +33,7 @@ auth.onAuthStateChanged(async (user) => {
             { page: ProfileUpdatePage, path: "/update" },
             { page: NewsPage, path: "/news" },
             { page: CancleFriendPage, path: "/canclefriend" },
+            { page: CancleChatPage, path: "/canclechat" },
           ];
           const router = new Router({ pages: pages });
           router.push(pages[0].path);

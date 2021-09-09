@@ -7,42 +7,48 @@ class Chat extends Component {
   friend: any;
   room: any;
   me: any;
+  deleteChat: any;
 
-  constructor(parent, chat, room, friend, me, router) {
+  constructor(parent, room, friend, me, deleteChat, router) {
     super(parent);
-    // 이 방의 채팅 정보
-    this.chat = chat;
     // 이 방의 룸 정보
     this.room = room;
     // 이 방의 상대방 정보
     this.friend = friend;
     // 내 정보
     this.me = me;
+    console.log(room, friend, me);
+    this.deleteChat = deleteChat;
     this.router = router;
   }
 
   mount() {
-    // 룸을 클릭하면 채팅 화면으로 넘어갑니다.
-    document.getElementById(`${this.chat.id}`).addEventListener("click", () => {
-      // 채팅 화면으로 넘어가면서 읽지 않은 메세지 수를 0으로 초기화합니다.
-      if (this.room.unreadMessage !== "0") {
-        firestore
-          .collection("users")
-          .doc(auth.currentUser.uid)
-          .collection("rooms")
-          .doc(this.room.id)
-          .update({ unreadMessage: 0 })
-          .catch((err) => console.log(err.message));
-      }
-
-      this.router.setData([this.chat, this.me, this.friend]);
-      this.router.push("/room");
-    });
+    document
+      .getElementById(`delete${this.room.id}`)
+      .addEventListener("click", () => {
+        var ans = confirm("Do you really want to delete it?");
+        if (ans) {
+          firestore.collection("rooms").doc(this.room.id).delete();
+          firestore
+            .collection("users")
+            .doc(this.me.uid)
+            .collection("rooms")
+            .doc(this.room.id)
+            .delete();
+          firestore
+            .collection("users")
+            .doc(this.friend.uid)
+            .collection("rooms")
+            .doc(this.room.id)
+            .delete();
+          this.deleteChat(this.room.id, this.friend.uid);
+        }
+      });
   }
 
   render() {
     return `
-    <div class="chatRoom" id="${this.room.id}">
+    <div class="chatRoom delete" id="delete${this.room.id}">
         <div class="imageContainer">
             <img src="${
               this.friend.profileImg
@@ -54,15 +60,15 @@ class Chat extends Component {
         </div>
         <div class="roomInfo">
             <span class="time">${
-              parseInt(this.chat.hour) < 10
-                ? `0${this.chat.hour}`
-                : this.chat.hour
+              parseInt(this.room.hour) < 10
+                ? `0${this.room.hour}`
+                : this.room.hour
             }
         :
         ${
-          parseInt(this.chat.minute) < 10
-            ? `0${this.chat.minute}`
-            : this.chat.minute
+          parseInt(this.room.minute) < 10
+            ? `0${this.room.minute}`
+            : this.room.minute
         }</span>
             ${
               this.room.unreadMessage

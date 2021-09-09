@@ -1,14 +1,12 @@
 import { Component } from "../../lib/Component";
 
 class Header extends Component {
-  len: any;
   router: any;
   me: any;
-  constructor(parent, len, me, router) {
+  constructor(parent, me, router) {
     super(parent);
-    this.len = len;
-    this.me = me;
     this.router = router;
+    this.me = me;
   }
 
   mount() {
@@ -17,27 +15,27 @@ class Header extends Component {
     const news = document.querySelector(".news");
     const more = document.querySelector(".more");
 
-    home.classList.add("focus");
+    chat.classList.add("focus");
 
-    chat.addEventListener("click", () => {
-      chat.setAttribute("disabled", "disabled");
-      this.router.setData(this.me);
-      this.router.push("/chat");
-      home.classList.remove("focus");
+    home.addEventListener("click", () => {
+      home.setAttribute("disabled", "disabled");
+      this.router.push("/");
+      chat.classList.remove("focus");
     });
     news.addEventListener("click", () => {
       news.setAttribute("disabled", "disabled");
       this.router.push("/news");
-      home.classList.remove("focus");
+      chat.classList.remove("focus");
     });
     more.addEventListener("click", () => {
       more.setAttribute("disabled", "disabled");
       this.router.push("/more");
-      home.classList.remove("focus");
+      chat.classList.remove("focus");
     });
 
-    document.getElementById("mainBack").addEventListener("click", () => {
-      this.router.push("/");
+    document.getElementById("chatBack").addEventListener("click", () => {
+      this.router.setData(this.me);
+      this.router.push("/chat");
     });
   }
 
@@ -45,9 +43,9 @@ class Header extends Component {
     return `
         <div class="headerContainer">
             <div class="headerBar">
-                <span>Friends ${this.len}</span>
+                <span>Chatting</span>
                 <div class="headerButtonContainer">
-                    <button type="button" id="mainBack"><img src="./public/images/back.png" /></button>
+                    <button type="button" id="chatBack"><img src="./public/images/back.png" /></button>
                 </div>
             </div>
             <div class="headerTab">

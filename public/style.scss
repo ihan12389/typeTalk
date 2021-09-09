@@ -926,6 +926,8 @@ body {
   }
 }
 
+/* Main's DropBox */
+
 .dropbox {
   display: flex;
   flex-direction: column;
@@ -942,10 +944,41 @@ body {
       cursor: pointer;
     }
   }
+  .chatDropdown {
+    display: none;
+    position: absolute;
+    background-color: #eeeeee;
+    margin-top: 40px;
+    margin-left: -103px;
+    padding: 5px;
+    span {
+      color: black;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
 }
 
 .deleteFriend {
   font-size: 22px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.delete {
+  background-color: RGB(254, 240, 239);
+  cursor: pointer;
+}
+
+/* Loading */
+.loadingContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    margin-top: 100px;
+    width: 80px;
+    height: 80px;
+  }
 }

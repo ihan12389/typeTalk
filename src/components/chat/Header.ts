@@ -2,9 +2,15 @@ import { Component } from "../../lib/Component";
 
 class Header extends Component {
   router: any;
-  constructor(parent, router) {
+  friendList: any;
+  roomList: any;
+  me: any;
+  constructor(parent, me, roomList, friendList, router) {
     super(parent);
     this.router = router;
+    this.me = me;
+    this.roomList = roomList;
+    this.friendList = friendList;
   }
 
   mount() {
@@ -30,6 +36,21 @@ class Header extends Component {
       this.router.push("/more");
       chat.classList.remove("focus");
     });
+
+    document.getElementById("chatDropButton").addEventListener("click", () => {
+      const drop = document.getElementById("chatDropdown");
+      console.log(drop);
+      if (drop.style.display == "none") {
+        drop.style.display = "inline-block";
+      } else {
+        drop.style.display = "none";
+      }
+    });
+
+    document.getElementById("chatDropLi").addEventListener("click", () => {
+      this.router.setData([this.me, this.roomList, this.friendList]);
+      this.router.push("/canclechat");
+    });
   }
 
   render() {
@@ -38,7 +59,12 @@ class Header extends Component {
             <div class="headerBar">
                 <span>Chatting</span>
                 <div class="headerButtonContainer">
-                    <button type="button"><img src="./public/images/more_c.png" /></button>
+                    <div class="dropbox">
+                      <button type="button" id="chatDropButton"><img src="./public/images/more_c.png" /></button>
+                      <div style="display:none;" class="chatDropdown" id="chatDropdown">
+                        <span id="chatDropLi">Delete Chatting</span>
+                      </div>
+                    </div>
                 </div>
             </div>
             <div class="headerTab">

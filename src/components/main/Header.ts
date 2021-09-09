@@ -15,6 +15,8 @@ class Header extends Component {
   }
 
   mount() {
+    this.router.setData(this.me);
+
     const home = document.querySelector(".home");
     const chat = document.querySelector(".chat");
     const news = document.querySelector(".news");
@@ -24,7 +26,6 @@ class Header extends Component {
 
     chat.addEventListener("click", () => {
       chat.setAttribute("disabled", "disabled");
-      this.router.setData(this.me);
       this.router.push("/chat");
       home.classList.remove("focus");
     });
@@ -61,7 +62,6 @@ class Header extends Component {
             <div class="headerBar">
                 <span>Friends ${this.len}</span>
                 <div class="headerButtonContainer">
-                    <button type="button"><img src="./public/images/add.png" /></button>
                     <div class="dropbox">
                       <button type="button" id="mainDropButton"><img src="./public/images/more_c.png" /></button>
                       <div style="display:none;" class="dropdown" id="mainDropdown">

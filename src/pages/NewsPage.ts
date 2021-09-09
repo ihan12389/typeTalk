@@ -4,6 +4,7 @@ import { Header } from "../components/news/Header";
 import { Search } from "../components/news/Search";
 import { Articles } from "../components/news/Articles";
 import { Article } from "../components/news/Article";
+import { Loading } from "../components/Loading";
 
 var axios = require("axios").default;
 
@@ -11,8 +12,17 @@ class NewsPage extends Page {
   constructor({ router, datas }) {
     super(router);
 
+    const container = new NewsContainer(null);
+    new Header(container, router);
+    new Search(container, this.searchContents);
+    new Loading(container);
+
+    this.render();
+    this.mount();
+
     this.useAnother("japan")
       .then((list) => {
+        this.reset();
         console.log(list);
         const container = new NewsContainer(null);
         new Header(container, router);
@@ -75,8 +85,18 @@ class NewsPage extends Page {
 
   searchContents = (search) => {
     this.reset();
+
+    const container = new NewsContainer(null);
+    new Header(container, this.router);
+    new Search(container, this.searchContents);
+    new Loading(container);
+
+    this.render();
+    this.mount();
+
     this.useAnother(search)
       .then((list) => {
+        this.reset();
         console.log(list);
         const container = new NewsContainer(null);
         new Header(container, this.router);

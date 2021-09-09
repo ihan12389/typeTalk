@@ -3,7 +3,6 @@ import { Component } from "../../lib/Component";
 class Header extends Component {
   len: any;
   router: any;
-  me: any;
   constructor(parent, router) {
     super(parent);
     this.router = router;
@@ -19,7 +18,6 @@ class Header extends Component {
 
     chat.addEventListener("click", () => {
       chat.setAttribute("disabled", "disabled");
-      this.router.setData(this.me);
       this.router.push("/chat");
       news.classList.remove("focus");
     });
