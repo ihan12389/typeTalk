@@ -20,7 +20,7 @@ class NewsPage extends Page {
     this.render();
     this.mount();
 
-    this.useAnother("Web")
+    this.useAnother("웹")
       .then((list) => {
         this.reset();
         console.log(list);
