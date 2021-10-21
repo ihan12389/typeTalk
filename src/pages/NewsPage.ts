@@ -20,7 +20,7 @@ class NewsPage extends Page {
     this.render();
     this.mount();
 
-    this.useAnother("japan")
+    this.useAnother("Web")
       .then((list) => {
         this.reset();
         console.log(list);
