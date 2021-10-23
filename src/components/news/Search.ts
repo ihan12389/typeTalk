@@ -24,7 +24,7 @@ class Search extends Component {
   render() {
     return `
         <div class="search">
-            <input id="newsSearch" type="text" placeholder="🔍 Search Nickname & Email" value="" />
+            <input id="newsSearch" type="text" placeholder="🔍 Search Book or Movie Information" value="" />
             <div class="searchBox">
             </div>
         </div>
