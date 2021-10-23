@@ -834,6 +834,7 @@ body {
       align-self: flex-end;
   font-size: 13px;
   margin-left: 5px;
+  margin-bottom: 12px;
 }
 
 .roomContainerWrapper .roomContainer .roomContent .myChat {
@@ -903,20 +904,27 @@ body {
       align-self: flex-end;
   font-size: 13px;
   margin-right: 5px;
+  margin-bottom: 12px;
 }
 
-.roomContainerWrapper .roomContainer .roomContent .top {
-  padding-bottom: 0px;
+.roomContainerWrapper .roomContainer .roomContent .one .time {
   margin-bottom: 0px;
 }
 
+.roomContainerWrapper .roomContainer .roomContent .top {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .roomContainerWrapper .roomContainer .roomContent .top .time {
-  display: none;
+  margin-bottom: 0;
 }
 
 .roomContainerWrapper .roomContainer .roomContent .last {
-  padding-top: 0px;
-  margin-top: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .roomContainerWrapper .roomContainer .roomContent .last img {
@@ -933,17 +941,13 @@ body {
 
 .roomContainerWrapper .roomContainer .roomContent .middle {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: -10px;
   padding-top: 0;
   padding-bottom: 0;
 }
 
 .roomContainerWrapper .roomContainer .roomContent .middle img {
   visibility: hidden;
-}
-
-.roomContainerWrapper .roomContainer .roomContent .middle .time {
-  display: none;
 }
 
 .roomContainerWrapper .roomContainer .roomContent .middle .name {

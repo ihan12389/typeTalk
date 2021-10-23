@@ -13,6 +13,7 @@ class NewsPage extends Page {
     super(router);
 
     const container = new NewsContainer(null);
+    
     new Header(container, router);
     new Search(container, this.searchContents);
     new Loading(container);

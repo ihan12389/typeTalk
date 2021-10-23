@@ -22,8 +22,10 @@ class Header extends Component {
   }
 
   getRoomTitle() {
-    const friendUid = this.room.uids.filter(uid => uid !== this.me.uid)[0];
-    const friend = this.room.friends.filter(friend => friend.uid === friendUid)[0];
+    const friendUid = this.room.uids.filter((uid) => uid !== this.me.uid)[0];
+    const friend = this.room.friends.filter(
+      (friend) => friend.uid === friendUid
+    )[0];
     return friend.nickname;
   }
 
@@ -38,10 +40,6 @@ class Header extends Component {
                 <span class="friendsNum">
                   ${this.room.friends.length}
                 </span>
-            </div>
-            <div class="headerRight">
-                <img class="search" src="./public/images/search.png" />
-                <img class="menu" src="./public/images/menu.png" />
             </div>
         </div>
         `;
