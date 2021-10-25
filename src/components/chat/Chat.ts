@@ -54,15 +54,15 @@ class Chat extends Component {
         </div>
         <div class="roomInfo">
             <span class="time">${
-              parseInt(this.chat.hour) < 10
-                ? `0${this.chat.hour}`
-                : this.chat.hour
+              parseInt(this.room.hour) < 10
+                ? `0${this.room.hour}`
+                : this.room.hour
             }
         :
         ${
-          parseInt(this.chat.minute) < 10
-            ? `0${this.chat.minute}`
-            : this.chat.minute
+          parseInt(this.room.minute) < 10
+            ? `0${this.room.minute}`
+            : this.room.minute
         }</span>
             ${
               this.room.unreadMessage
