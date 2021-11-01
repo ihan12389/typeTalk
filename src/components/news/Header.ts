@@ -38,10 +38,6 @@ class Header extends Component {
         <div class="headerContainer">
             <div class="headerBar">
                 <span>News</span>
-                <div class="headerButtonContainer">
-                    <button type="button"><img src="./public/images/add.png" /></button>
-                    <button type="button"><img src="./public/images/more_c.png" /></button>
-                </div>
             </div>
             <div class="headerTab">
                 <div class="tabButton home">

@@ -251,6 +251,7 @@ body {
         }
       }
       .myProfile {
+        cursor: pointer;
         height: 80px;
         display: flex;
         align-items: center;
@@ -302,11 +303,11 @@ body {
         border-bottom: 1px solid #e9e9e9;
         display: flex;
         align-items: center;
+        cursor: pointer;
         justify-content: space-between;
         .profileLeft {
           display: flex;
           align-items: center;
-          cursor: pointer;
           img {
             margin-left: 15px;
             cursor: pointer;
@@ -367,6 +368,7 @@ body {
       .chatRoom {
         width: 100%;
         height: 100px;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -711,6 +713,7 @@ body {
       height: 100%;
       .profile {
         display: flex;
+        cursor: pointer;
         flex-direction: column;
         align-items: center;
         margin-top: -120px;
